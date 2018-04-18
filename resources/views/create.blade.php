@@ -1,10 +1,12 @@
 <!-- create_person.blade.php -->
+@extends('layouts.app')
 
+@section('content')
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Treinamento Testes</title>
+    <title>Treinamento Adicionar Pessoa</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">  
@@ -27,6 +29,13 @@
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
+              <label for="Number">Matrícula:</label>
+              <input type="text" class="form-control" name="matricula">
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
               <label for="Email">Email:</label>
               <input type="text" class="form-control" name="email">
             </div>
@@ -45,20 +54,15 @@
               <input type="text" class="form-control" name="whatsapp">
             </div>
           </div>
-          <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="Number">Matrícula:</label>
-              <input type="text" class="form-control" name="matricula">
-            </div>
-          </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4" style="margin-top:60px">
             <button type="submit" class="btn btn-success">Submit</button>
+            <a href="{{action('PessoasController@index')}}" class="btn btn-default">Voltar</a>
           </div>
         </div>
       </form>
     </div>
   </body>
 </html>
+@endsection

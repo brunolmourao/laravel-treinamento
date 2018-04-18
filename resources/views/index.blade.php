@@ -7,7 +7,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Index Page</title>
+    <title>Aplicação Treinamento</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
   </head>
   <body>
@@ -42,22 +42,24 @@
         <td>{{$pessoa['celular']}}</td>
         <td>{{$pessoa['whatsapp']}}</td>
         
-        <td><a href="{{action('PessoasController@edit', $pessoa['idpessoas'])}}" class="btn btn-warning">Edit</a></td>
+        <td><a href="{{action('PessoasController@edit', $pessoa['idpessoas'])}}" class="btn btn-warning">Editar</a></td>
         <td>
           <form action="{{action('PessoasController@destroy', $pessoa['idpessoas'])}}" method="post">
             @csrf
             <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Delete</button>
+            <button class="btn btn-danger" type="submit">Deletar</button>
           </form>
         </td>
       </tr>
       @endforeach
-      <td><a href="{{action('PessoasController@create')}}" class="btn btn-warning">Add Pessoa</a></td>
+      <tr><a href="{{action('PessoasController@create')}}" class="btn btn-warning">Adicionar Pessoa</a></tr>
       @endif
 
       </div>
             @if(Auth::guest())
-              <a href="/login" class="btn btn-info"> You need to login to see the list  >></a>
+              <div>
+                <a href="/login" class="btn btn-info"> Você precisa estar logado para ter acesso a essa aplicação  >></a>
+              </div>   
             @endif
         </div>
 
