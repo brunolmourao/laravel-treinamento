@@ -52,6 +52,7 @@
         </td>
       </tr>
       @endforeach
+      <td><a href="{{action('PessoasController@create')}}" class="btn btn-warning">Add Pessoa</a></td>
       @endif
 
       </div>
@@ -59,7 +60,7 @@
               <a href="/login" class="btn btn-info"> You need to login to see the list  >></a>
             @endif
         </div>
-        
+
     </tbody>
   </table>
   </div>

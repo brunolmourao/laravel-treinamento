@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('create_person');
-});
+Route::get('/', 'PessoasController@index');
 
 Auth::routes();
 Route::resource('pessoa','PessoasController');

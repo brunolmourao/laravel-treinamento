@@ -9,7 +9,7 @@ class PessoasController extends Controller
 {
    public function create()
     {
-        return view('create_person');
+        return view('create');
     }
     public function show()
     {
@@ -31,11 +31,6 @@ class PessoasController extends Controller
     {
         $pessoas=Pessoa::all();
         return view('index',compact('pessoas'));
-    }
-    public function index2(){
-        $char = DB::table('pessoas')->get();
-        
-        return view('index', ['pessoas' => $char]);
     }
      public function edit($id)
     {
