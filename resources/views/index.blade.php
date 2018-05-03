@@ -1,14 +1,19 @@
 <!-- index.blade.php -->
-@extends('layouts.app')
+{{-- resources/views/admin/dashboard.blade.php --}}
+
+@extends('adminlte::page')
+
+@section('title', 'Treinameto')
+
+@section('content_header')
+    <h1>Bem Vindo !</h1>
+@stop
 
 @section('content')
-
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Aplicação Treinamento</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
   </head>
   <body>
     <div class="container">
@@ -52,7 +57,6 @@
         </td>
       </tr>
       @endforeach
-      <tr><a href="{{action('PessoasController@create')}}" class="btn btn-warning">Adicionar Pessoa</a></tr>
       @endif
 
       </div>
@@ -68,4 +72,12 @@
   </div>
   </body>
 </html>
-@endsection
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

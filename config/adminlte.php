@@ -133,12 +133,12 @@ return [
             'icon' => 'lock',
         ],
         [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
+            'text'    => 'CRUD',
+            'icon'    => 'plus-square',
             'submenu' => [
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
+                    'text' => 'Adicionar Pessoas',
+                    'url'  => '/pessoa/create',
                 ],
                 [
                     'text'    => 'Level One',

@@ -12,6 +12,9 @@
 */
 
 Route::get('/', 'PessoasController@index');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
 
 Auth::routes();
 Route::resource('pessoa','PessoasController');
