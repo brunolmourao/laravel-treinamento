@@ -1,7 +1,15 @@
-@extends('layouts.app')
+{{-- resources/views/admin/dashboard.blade.php --}}
+
+@extends('adminlte::page')
+
+@section('title', 'Treinameto')
+
+@section('content_header')
+    <h1>Treinamento</h1>
+@stop
 
 @section('content')
-<div class="container">
+    <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -74,4 +82,12 @@
         </div>
     </div>
 </div>
-@endsection
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

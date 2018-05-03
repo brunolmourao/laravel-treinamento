@@ -27,7 +27,6 @@
     <table class="table table-striped">
     <thead>
       <tr>
-        <th>ID</th>
         <th>Nome</th>
         <th>Matricula</th>
         <th>Email</th>
@@ -40,7 +39,6 @@
       
       @foreach($pessoas as $pessoa)
       <tr>
-        <td>{{$pessoa['idpessoas']}}</td>
         <td>{{$pessoa['nomepessoa']}}</td>
         <td>{{$pessoa['matpessoas']}}</td>
         <td>{{$pessoa['email']}}</td>
@@ -62,7 +60,10 @@
       </div>
             @if(Auth::guest())
               <div>
-                <a href="/login" class="btn btn-info"> Você precisa estar logado para ter acesso a essa aplicação  >></a>
+                <h2>Você precisa estar logado para acessar essa aplicação:<h2>
+                <a href="/login" class="btn btn-info"> Login</a>
+                <h2> Nao Possui login?</h2>
+                <a href="/register" class="btn btn-info"> Registrar</a>
               </div>   
             @endif
         </div>

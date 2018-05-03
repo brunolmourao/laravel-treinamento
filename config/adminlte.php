@@ -116,7 +116,7 @@ return [
         ],
         [
             'text'        => 'Pages',
-            'url'         => '/pessoa/create',
+            'url'         => '/',
             'icon'        => 'file',
             'label'       => 4,
             'label_color' => 'success',

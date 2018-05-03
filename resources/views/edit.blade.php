@@ -1,17 +1,22 @@
 <!-- edit.blade.php -->
-@extends('layouts.app')
+{{-- resources/views/admin/dashboard.blade.php --}}
+
+@extends('adminlte::page')
+
+@section('title', 'Treinameto')
+
+@section('content_header')
+    <h1>Editar Pessoa</h1>
+@stop
 
 @section('content')
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Treinamento Editar </title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
   </head>
   <body>
     <div class="container">
-      <h2>Edite um Registro</h2><br  />
         <form method="post" action="{{action('PessoasController@update', $id)}}">
         @csrf
         <input name="_method" type="hidden" value="PATCH">
@@ -54,4 +59,12 @@
     </div>
   </body>
 </html>
-@endsection
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
