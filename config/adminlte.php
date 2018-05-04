@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'collapse_sidebar' => false,
+    'collapse_sidebar' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -170,10 +170,40 @@ return [
                 ],
             ],
         ],
-        'LABELS',
+        'CURSOS',
         [
-            'text'       => 'Important',
+            'text'       => 'Treinamentos',
             'icon_color' => 'red',
+            'submenu' => [
+                [
+                    'text' => 'Cursos do aluno',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Cursos',
+                    'url'     => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'Histórico',
+                            'url'  => '#',
+                        ],
+                        [
+                            'text'    => 'Módulos',
+                            'url'     => '#',
+                            'submenu' => [
+                                [
+                                    'text' => 'Level Three',
+                                    'url'  => '#',
+                                ],
+                                [
+                                    'text' => 'Level Three',
+                                    'url'  => '#',
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ],
         [
             'text'       => 'Warning',
