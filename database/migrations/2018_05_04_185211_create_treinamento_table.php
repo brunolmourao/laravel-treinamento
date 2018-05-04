@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTurmaTable extends Migration
+class CreateTreinamentoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTurmaTable extends Migration
      */
     public function up()
     {
-        Schema::create('turma', function (Blueprint $table) {
-            $table->increments('idturma');
-            $table->string('turma');
-            $table->date('dateInicio');
-            $table->date('dateFim');
-            $table->foreign('idtreinamento')->references('idtreinamento')->on('treinamento');
+        Schema::create('treinamento', function (Blueprint $table) {
+            $table->increments('idtreinamento');
+            $table->string('nometreinamento');
+            $table->decimal('cargahoraria');
+            $table->binary('objetivo');
+            $table->string('realizador');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateTurmaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('turma');
+        Schema::dropIfExists('treinamento');
     }
 }
