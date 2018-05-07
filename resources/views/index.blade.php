@@ -6,7 +6,7 @@
 @section('title', 'Treinameto')
 
 @section('content_header')
-    <h1>Bem Vindo !</h1>
+    <h1>Lista de Alunos</h1>
 @stop
 
 @section('content')

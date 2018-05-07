@@ -17,6 +17,12 @@
   </head>
   <body>
     <div class="container">
+      @if (\Session::has('success'))
+      <div class="alert alert-success">
+        <p>{{ \Session::get('success') }}</p>
+      </div><br />
+     @endif
+      @if(Auth::check())
       <form method="post" action="{{url('pessoa')}}" enctype="multipart/form-data">
         @csrf
         <div class="row">
@@ -65,6 +71,17 @@
     </div>
   </body>
 </html>
+@endif
+      </div>
+            @if(Auth::guest())
+              <div>
+                <h2><center>Você precisa estar logado para acessar essa aplicação:</center></h2>
+                <a href="/login" class="btn btn-info btn-lg btn-block"> Login</a>
+                <h2><center> Nao possui login?</center></h2>
+                <a href="/register" class="btn btn-info btn-lg btn-block"> Registrar</a>
+              </div>   
+            @endif
+        </div>
 @stop
 
 @section('css')

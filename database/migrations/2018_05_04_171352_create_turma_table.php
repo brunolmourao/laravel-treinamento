@@ -13,14 +13,16 @@ class CreateTurmaTable extends Migration
      */
     public function up()
     {
-        Schema::create('turma', function (Blueprint $table) {
-            $table->increments('idturma');
-            $table->string('turma');
-            $table->date('dateInicio');
-            $table->date('dateFim');
-            $table->foreign('idtreinamento')->references('idtreinamento')->on('treinamento');
-            $table->timestamps();
-        });
+        if(!Schema::hasTable('historico')){
+            Schema::create('turma', function (Blueprint $table) {
+                $table->increments('idturma');
+                $table->string('turma');
+                $table->date('dateInicio');
+                $table->date('dateFim');
+                $table->foreign('idtreinamento')->references('idtreinamento')->on('treinamento');
+                $table->timestamps();
+            });
+        }
     }
 
     /**

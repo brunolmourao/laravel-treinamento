@@ -5,6 +5,7 @@ return [
     'full_name'                   => 'Full name',
     'email'                       => 'Email',
     'password'                    => 'Password',
+    'matricula'                   => 'Registration',  
     'retype_password'             => 'Retype password',
     'remember_me'                 => 'Remember Me',
     'register'                    => 'Register',
