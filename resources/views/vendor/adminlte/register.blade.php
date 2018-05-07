@@ -48,7 +48,26 @@
                         </span>
                     @endif
                 </div>
-
+                <div class="form-group has-feedback {{ $errors->has('phoneNumber') ? 'has-error' : '' }}">
+                    <input type="phoneNumber" name="phoneNumber" class="form-control" value="{{ old('phoneNumber') }}"
+                           placeholder="{{ trans('adminlte::adminlte.phoneNumber') }}">
+                    <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                    @if ($errors->has('phoneNumber'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('phoneNumber') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group has-feedback {{ $errors->has('whatsapp') ? 'has-error' : '' }}">
+                    <input type="whatsapp" name="whatsapp" class="form-control" value="{{ old('whatsapp') }}"
+                           placeholder="{{ trans('adminlte::adminlte.whatsapp') }}">
+                    <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                    @if ($errors->has('whatsapp'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('whatsapp') }}</strong>
+                        </span>
+                    @endif
+                </div>
                 <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
                     <input type="password" name="password" class="form-control"
                            placeholder="{{ trans('adminlte::adminlte.password') }}">
