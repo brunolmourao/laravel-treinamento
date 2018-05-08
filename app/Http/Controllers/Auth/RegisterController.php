@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Pessoa;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -66,6 +66,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $pessoa = new Pessoa();
+        $pessoa->nomepessoa=$data['name'];
+        $pessoa->email=$data['email'];
+        $pessoa->celular=$data['phoneNumber'];
+        $pessoa->whatsapp = $data['whatsapp'];
+        $pessoa->matpessoas = $data['matricula'];
+        $pessoa->save();
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

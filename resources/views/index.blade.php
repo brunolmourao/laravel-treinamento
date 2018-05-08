@@ -3,7 +3,7 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Treinameto')
+@section('title', 'Treinamento')
 
 @section('content_header')
     <h1>Lista de Alunos</h1>
