@@ -15,12 +15,10 @@ Route::get('/', 'PessoasController@index');
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-
+Route::get('/profile', function () {
+    return view('profile');
+});
 Auth::routes();
 Route::resource('pessoa','PessoasController');
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
