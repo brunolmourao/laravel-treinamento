@@ -62,11 +62,11 @@ class PessoasController extends Controller
     public function destroy($id)
     {
         $pessoa = Pessoa::find($id);
-        $users = User::where('matricula',$pessoa->matpessoas)->get();
-        $user = $users[0];
-        if(!($user == null)){    
-            $user->delete;
-        }
+        if(!(User::where('matricula',$pessoa->matpessoas)->get()->isEmpty())){
+             $users = User::where('matricula',$pessoa->matpessoas)->get();
+            $user = $users[0];
+            $user->delete();
+        }   
         $pessoa->delete();
         return redirect('pessoa')->with('success','Information has been  deleted');
     }
