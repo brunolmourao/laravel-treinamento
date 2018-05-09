@@ -30,22 +30,15 @@
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-              <label for="email">Matricula</label>
-              <input type="text" class="form-control" name="matricula" value="{{$pessoa->matpessoas}}">
-            </div>
-          </div>
-        <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="email">Email</label>
-              <input type="text" class="form-control" name="email" value="{{$pessoa->email}}">
-            </div>
-          </div>
-        <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
               <label for="number">Telefone Celular:</label>
               <input type="text" class="form-control" name="number" value="{{$pessoa->celular}}">
+            </div>
+          </div>
+          <div class="row">
+          <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+              <label for="whatsapp">Whatsapp:</label>
+              <input type="text" class="form-control" name="whatsapp" value="{{$pessoa->whatsapp}}">
             </div>
           </div>
         <div class="row">
