@@ -137,8 +137,8 @@ return [
             'icon'    => 'plus-square',
             'submenu' => [
                 [
-                    'text' => 'Adicionar Pessoas',
-                    'url'  => '/pessoa/create',
+                    'text' => 'Adicionar Histórico',
+                    'url'  => '/historico/create',
                 ],
                 [
                     'text'    => 'Level One',

@@ -44,7 +44,7 @@ class PessoasController extends Controller
        
         
         if(!(User::where('matricula',$pessoa->matpessoas)->get()->isEmpty())){
-             $users = User::where('matricula',$pessoa->matpessoas)->get();
+            $users = User::where('matricula',$pessoa->matpessoas)->get();
             $user = $users[0];
             $user->name=$request->get('name');
             $user->phoneNumber=$request->get('number');

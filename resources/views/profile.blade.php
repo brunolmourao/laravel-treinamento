@@ -26,7 +26,7 @@
     	echo "<h2> Whatsapp:  ".$user->whatsapp. "<h2>";
     ?>
     <div style ="position: absolute; bottom: 0;right:0;">
-    	<a href="{{action('PessoasController@edit', $pessoa['idpessoas'])}}" class="btn btn-primary btn-block"> Alterar Attributos </a>
+    	<a href="{{action('PessoasController@edit', $pessoa['idpessoas'])}}" class="btn btn-primary btn-block"> Alterar Atributos </a>
     </div>	
     @endif
     @if(Auth::guest())
