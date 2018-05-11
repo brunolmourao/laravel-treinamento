@@ -13,14 +13,17 @@ class CreateTreinamentoTable extends Migration
      */
     public function up()
     {
-        Schema::create('treinamento', function (Blueprint $table) {
-            $table->increments('idtreinamento');
-            $table->string('nometreinamento');
-            $table->decimal('cargahoraria');
-            $table->binary('objetivo');
-            $table->string('realizador');
-            $table->timestamps();
-        });
+        Schema::enableForeignKeyConstraints();
+        if(!Schema::hasTable('treinamento')){
+            Schema::create('treinamento', function (Blueprint $table) {
+                $table->increments('idtreinamento');
+                $table->string('nometreinamento');
+                $table->decimal('cargahoraria');
+                $table->binary('objetivo');
+                $table->string('realizador');
+                $table->timestamps();
+            });
+        }    
     }
 
     /**

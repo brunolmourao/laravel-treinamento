@@ -13,16 +13,22 @@ class CreateHistoricoTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         if(!Schema::hasTable('historico')){
             Schema::create('historico', function (Blueprint $table) {
                 $table->increments('idhistorico');
                 $table->integer('faltas');
                 $table->decimal('nota');
                 $table->char('aprovado',1);
-                $table->foreign('idpessoas')->references('idpessoas')->on('pessoas');
-                $table->foreign('idturma')->references('idturma')->on('turma');
+                $table->unsignedInteger('idpessoas');
+                $table->unsignedInteger('idturma');
                 $table->timestamps();
             });
+            Schema::table('historico', function($table) {
+                $table->foreign('idpessoas')->references('idpessoas')->on('pessoas')->OnDelete('cascade');
+                $table->foreign('idturma')->references('idturma')->on('turma')->OnDelete('cascade');
+            });
+
         }    
     }
 
@@ -33,6 +39,11 @@ class CreateHistoricoTable extends Migration
      */
     public function down()
     {
+        Schema::table('historico', function (Blueprint $table) {
+            $table->dropForeign(['idturma']);
+            $table->dropForeign(['idpessoas']);
+        });
         Schema::dropIfExists('historico');
+        
     }
 }
