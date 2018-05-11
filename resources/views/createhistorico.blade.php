@@ -27,14 +27,21 @@
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
-            <label for="Nome">Matricula Aluno:</label>
+            <label for="Matricula">Matricula Aluno:</label>
             <input type="text" class="form-control" name="matricula">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-              <label for="Number">Faltas:</label>
+              <label for="Turma">Nome da Turma:</label>
+              <input type="text" class="form-control" name="turma">
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+              <label for="Faltas">Faltas:</label>
               <input type="text" class="form-control" name="faltas">
             </div>
           </div>
@@ -52,18 +59,11 @@
               <input type="text" class="form-control" name="nota">
             </div>
           </div>
-          <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="Number">Nome da Turma:</label>
-              <input type="text" class="form-control" name="turma">
-            </div>
-          </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4" style="margin-top:60px">
             <button type="submit" class="btn btn-success">Submit</button>
-            <a href="{{action('PessoasController@index')}}" class="btn btn-default">Voltar</a>
+            <a href="{{action('HistoricoController@index')}}" class="btn btn-default">Voltar</a>
           </div>
         </div>
       </form>

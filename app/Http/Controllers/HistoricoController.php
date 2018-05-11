@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Historico;
 use App\Pessoa;
+use App\Turma;
 use DB;
 
 class HistoricoController extends Controller
@@ -22,13 +23,16 @@ class HistoricoController extends Controller
     	$historico = new Historico();
         if(!(Pessoa::where('matpessoas',$request->matricula)->get()->isEmpty())){
         	$pessoa = Pessoa::where('matpessoas',$request->matricula)->first();
+        	if(!(Turma::where('turma',$request->turma)->get()->isEmpty() )){
+                $turma = Turma::where('turma',$request->turma)->first();
+                $historico->faltas=$request->get('faltas');
+                $historico->nota=$request->get('nota');
+                $historico->aprovado=$request->get('aprovado');
+                $historico->idpessoas=$pessoa->idpessoas;
+                $historico->idturma=$turma->idturma;
+                $historico->save();
+            }
         	
-        	$historico->faltas=$request->get('faltas');
-       		$historico->nota=$request->get('nota');
-        	$historico->aprovado=$request->get('aprovado');
-        	$historico->idpessoas=$pessoa->idpessoas;
-        	$historico->idturma=$request->get('idturma');
-        	$historico->save();
         	return redirect('historico')->with('success', 'Information has been added');
         }else{
         	return redirect('historico')->with('failure', 'Information has not been added');
@@ -38,8 +42,8 @@ class HistoricoController extends Controller
     }
     public function index()
     {
-        $historico=Historico::all();
-        return view('indexhistorico',compact('historico'));
+        $historicos=Historico::all();
+        return view('indexhistorico',compact('historicos'));
     }
      public function edit($id)
     {
