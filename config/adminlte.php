@@ -145,8 +145,8 @@ return [
                     'url'     => '#',
                     'submenu' => [
                         [
-                            'text' => 'Level Two',
-                            'url'  => '#',
+                            'text' => 'Adicionar Turma',
+                            'url'  => '/turma/create',
                         ],
                         [
                             'text'    => 'Level Two',

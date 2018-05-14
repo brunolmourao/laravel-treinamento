@@ -15,16 +15,42 @@
       </div><br />
      @endif
      @if(Auth::check())
-    <?php
-    	$user = Auth::User();
-      $pessoas = App\Pessoa::where('matpessoas',$user->matricula)->get();
-      $pessoa = $pessoas[0];
-    	echo "<h2> Nome do Usuario:  ".$user->name. "<h2>";
-    	echo "<h2> Matricula:  ".$user->matricula. "<h2>";
-    	echo "<h2> Email:  ".$user->email. "<h2>";
-    	echo "<h2> Telefone:  ".$user->phoneNumber. "<h2>";
-    	echo "<h2> Whatsapp:  ".$user->whatsapp. "<h2>";
-    ?>
+      <?php
+    	 $user = Auth::User();
+        $pessoa = App\Pessoa::where('matpessoas',$user->matricula)->first();
+        $historicos = App\Historico::where('idpessoas',$pessoa->idpessoas)->get();
+    	 echo "<h2> Nome do Usuario:  ".$user->name. "<h2>";
+    	 echo "<h2> Matricula:  ".$user->matricula. "<h2>";
+    	 echo "<h2> Email:  ".$user->email. "<h2>";
+    	 echo "<h2> Telefone:  ".$user->phoneNumber. "<h2>";
+    	 echo "<h2> Whatsapp:  ".$user->whatsapp. "<h2>";
+      ?>
+
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome Turma</th>
+          <th>Nota</th>
+          <th>Aprovado</th>
+          <th>Número de Faltas</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      @foreach($historicos as $hist)
+      <tr>
+        <?php
+          $turma = App\Turma::where('idturma',$hist->idturma)->first();
+        ?>
+        <td>{{$turma['turma']}}</td>
+        <td>{{$hist['nota']}}</td>
+        <td>{{$hist['aprovado']}}</td>
+        <td>{{$hist['faltas']}}</td>
+      </tr>
+      @endforeach
+    </tbody>
+   </table>     
+
     <div style ="position: absolute; bottom: 0;right:0;">
     	<a href="{{action('PessoasController@edit', $pessoa['idpessoas'])}}" class="btn btn-primary btn-block"> Alterar Atributos </a>
     </div>	

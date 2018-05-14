@@ -32,7 +32,6 @@ class HistoricoController extends Controller
                 $historico->idturma=$turma->idturma;
                 $historico->save();
             }
-        	
         	return redirect('historico')->with('success', 'Information has been added');
         }else{
         	return redirect('historico')->with('failure', 'Information has not been added');
