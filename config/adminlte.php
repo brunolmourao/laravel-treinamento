@@ -129,9 +129,11 @@ return [
         ],
         [
             'text' => 'Change Password',
-            'url'  => 'admin/settings',
+            'url'  => '/changePassword',
             'icon' => 'lock',
         ],
+
+        'APPLICATION LOGIC',
         [
             'text'    => 'CRUD',
             'icon'    => 'plus-square',
@@ -151,16 +153,6 @@ return [
                         [
                             'text'    => 'Adicionar Treinamento',
                             'url'     => '/treinamento/create',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
                         ],
                     ],
                 ],
