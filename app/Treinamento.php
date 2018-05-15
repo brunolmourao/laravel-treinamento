@@ -12,4 +12,8 @@ class Treinamento extends Model
     public function turma(){
     	return $this->hasOne('App\Turma','idturma','idturma');
     }
+
+    public function modulos(){
+    	return $this->hasMany('App\Modulo','idmodulo','idmodulo');
+    }
 }
