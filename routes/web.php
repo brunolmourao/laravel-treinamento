@@ -22,5 +22,6 @@ Auth::routes();
 Route::resource('pessoa','PessoasController');
 Route::resource('historico','HistoricoController');
 Route::resource('turma','TurmaController');
+Route::resource('treinamento','TreinamentoController');
 Route::get('/home', 'HomeController@index')->name('home');
 

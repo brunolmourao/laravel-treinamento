@@ -141,7 +141,7 @@ return [
                     'url'  => '/historico/create',
                 ],
                 [
-                    'text'    => 'Level One',
+                    'text'    => 'Adicionar',
                     'url'     => '#',
                     'submenu' => [
                         [
@@ -149,8 +149,8 @@ return [
                             'url'  => '/turma/create',
                         ],
                         [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
+                            'text'    => 'Adicionar Treinamento',
+                            'url'     => '/treinamento/create',
                             'submenu' => [
                                 [
                                     'text' => 'Level Three',

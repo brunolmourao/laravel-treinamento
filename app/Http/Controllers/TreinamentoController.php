@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Treinamento;
 class TreinamentoController extends Controller
 {
      public function create()
@@ -19,7 +19,7 @@ class TreinamentoController extends Controller
     	$treinamento = new Treinamento();
         $treinamento->nometreinamento = $request->get('nome');
         $treinamento->cargahoraria = $request->get('cargahoraria');
-        $treinamento->objetivo = $request->get('objetivo');
+        $treinamento->objetivo = $request->file('objetivo');
         $treinamento->realizador = $request->get('realizador');	
         $treinamento->save();
 

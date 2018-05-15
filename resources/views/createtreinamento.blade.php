@@ -22,41 +22,41 @@
       </div><br />
      @endif
       @if(Auth::check())
-      <form method="post" action="{{url('turma')}}" enctype="multipart/form-data">
+      <form method="post" action="{{url('treinamento')}}" enctype="multipart/form-data">
         @csrf
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
-            <label for="Turma">Nome da Turma:</label>
+            <label for="Turma">Nome da Treinamento :</label>
             <input type="text" class="form-control" name="nome">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-              <label for="Turma">Data Inicial:</label>
-              <input type="date" class="form-control" name="dataInicio">
+              <label for="Turma">Carga Horária :</label>
+              <input type="number" class="form-control" name="cargahoraria">
             </div>
           </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-              <label for="Faltas">Data Final:</label>
-              <input type="date" class="form-control" name="dataFim">
+              <label for="Faltas">Objetivo :</label>
+              <input type="file" class="form-control" name="objetivo">
             </div>
           </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-              <label for="Email">Nome Treinamento:</label>
-              <input type="text" class="form-control" name="nometreinamento">
+              <label for="Email">Realizador :</label>
+              <input type="text" class="form-control" name="realizador">
             </div>
           </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4" style="margin-top:60px">
             <button type="submit" class="btn btn-success">Submit</button>
-            <a href="{{action('TurmaController@index')}}" class="btn btn-default">Voltar</a>
+            <a href="{{action('TreinamentoController@index')}}" class="btn btn-default">Voltar</a>
           </div>
         </div>
       </form>
