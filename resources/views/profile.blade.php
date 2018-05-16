@@ -17,13 +17,13 @@
      @if(Auth::check())
       <?php
     	 $user = Auth::User();
-        $pessoa = App\Pessoa::where('matpessoas',$user->matricula)->first();
-        $historicos = App\Historico::where('idpessoas',$pessoa->idpessoas)->get();
-    	 echo "<h2> Nome do Usuario:  ".$user->name. "<h2>";
-    	 echo "<h2> Matricula:  ".$user->matricula. "<h2>";
-    	 echo "<h2> Email:  ".$user->email. "<h2>";
-    	 echo "<h2> Telefone:  ".$user->phoneNumber. "<h2>";
-    	 echo "<h2> Whatsapp:  ".$user->whatsapp. "<h2>";
+      $pessoa = App\Pessoa::where('matpessoas',$user->matricula)->first();
+      $historicos = App\Historico::where('idpessoas',$pessoa->idpessoas)->get();
+    	echo "<h2> Nome do Usuario:  ".$user->name. "<h2>";
+    	echo "<h2> Matricula:  ".$user->matricula. "<h2>";
+    	echo "<h2> Email:  ".$user->email. "<h2>";
+    	echo "<h2> Telefone:  ".$user->phoneNumber. "<h2>";
+    	echo "<h2> Whatsapp:  ".$user->whatsapp. "<h2>";
       ?>
 
       <table class="table table-striped">

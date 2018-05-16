@@ -57,4 +57,10 @@ class TurmaController extends Controller
         $turma->delete();
         return redirect('turma')->with('success','Information has been  deleted');
     }
+
+    public function verTurma($id){
+        $turma = Turma::find($id);
+
+        return view('turmapage',compact('turma'));
+    }
 }

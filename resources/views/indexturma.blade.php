@@ -46,7 +46,7 @@
         <td>{{$turma['dateFim']}}</td>
         <td>{{$treinamento['nometreinamento']}}</td>
         
-        <td><a href="{{action('TurmaController@edit', $turma['idturma'])}}" class="btn btn-warning">Editar</a></td>
+        <td><a href="{!! route('verTurma', ['id'=>$turma->idturma]) !!}" class="btn btn-warning">Editar</a></td>
         <td>
           <form action="{{action('TurmaController@destroy', $turma['idturma'])}}" method="post">
             @csrf
