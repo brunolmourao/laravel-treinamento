@@ -21,17 +21,14 @@
     	echo "<h2><center> Data Inicio:  ".$turma->dateInicio. "<center><h2>";
     	echo "<h2><center> Data Final :  ".$turma->dateFim. "<center><h2>";
       ?>
-
-      <div>
-        <div>
-          <h2> <center>Treinamento: {{{$treinamento->nometreinamento}}} </center></h2>
+      <div class="row">
+          <div class="col-md-4"></div>
+          <div class="form-group col-md-4">
+            <label>Treinamento: {{{$treinamento->nometreinamento}}} </label>
+            <a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}" class="btn btn-info btn-lg btn-block">Ver Treinamento</a>
+          </div>
         </div>
-        <div>
-          <a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}" class="btn btn-info btn-lg btn-block"> Ver Treinamento</a>
-        </div>  
-      </div>  
-      <a href="/" class="btn btn-info btn-lg btn-block"> Voltar</a>
-	
+      <a href="/turma" class="btn btn-info btn-lg btn-block"> Voltar</a>
     @endif
     @if(Auth::guest())
        	<div class="form-group col-md-4" style="margin-top:60px">

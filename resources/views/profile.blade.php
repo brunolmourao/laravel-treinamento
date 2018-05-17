@@ -26,7 +26,7 @@
     	echo "<h2> Whatsapp:  ".$user->whatsapp. "<h2>";
       ?>
 
-      <table class="table table-striped">
+      <table class="table table-hover">
       <thead>
         <tr>
           <th>Nome Turma</th>
@@ -53,8 +53,8 @@
     </tbody>
    </table>     
 
-    <div style ="position: absolute; bottom: 0;right:0;">
-    	<a href="{{action('PessoasController@edit', $pessoa['idpessoas'])}}" class="btn btn-primary btn-block"> Alterar Atributos </a>
+    <div style ="position: absolute; bottom: 0;left:50%;">
+    	<a href="{{action('PessoasController@edit', $pessoa['idpessoas'])}}" class="btn btn-primary btn -lg btn-block"> Alterar Atributos </a>
     </div>	
     @endif
     @if(Auth::guest())

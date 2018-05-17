@@ -41,7 +41,7 @@
         <td>{{$treinamento['cargahoraria']}}</td>
         <td>{{$treinamento['realizador']}}</td>
         
-        <td><a href="{{action('TreinamentoController@edit', $treinamento['idtreinamento'])}}" class="btn btn-warning">Editar</a></td>
+        <td><a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}" class="btn btn-warning">Ver Treinamento</a></td>
         <td>
           <form action="{{action('TreinamentoController@destroy', $treinamento['idtreinamento'])}}" method="post">
             @csrf

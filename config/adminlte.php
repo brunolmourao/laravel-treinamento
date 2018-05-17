@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'collapse_sidebar' => true,
+    'collapse_sidebar' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -115,9 +115,9 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Pages',
+            'text'        => 'Home',
             'url'         => '/',
-            'icon'        => 'file',
+            'icon'        => 'home',
             'label'       => 4,
             'label_color' => 'success',
         ],
@@ -172,26 +172,16 @@ return [
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'Cursos',
+                    'text'    => 'Treinamentos',
                     'url'     => '#',
                     'submenu' => [
                         [
-                            'text' => 'Histórico',
-                            'url'  => '#',
+                            'text' => 'Treinamento',
+                            'url'  => '/treinamento',
                         ],
                         [
-                            'text'    => 'Módulos',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
+                            'text'    => 'Turmas',
+                            'url'     => '/turma',
                         ],
                     ],
                 ],
