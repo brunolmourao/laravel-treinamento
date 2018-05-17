@@ -51,4 +51,10 @@ class TreinamentoController extends Controller
         $treinamento->delete();
         return redirect('treinamento')->with('success','Information has been  deleted');
     }
+
+    public function verTreinamento($id){
+        $treinamento = Treinamento::find($id);
+
+        return view('treinamentopage',compact('treinamento'));
+    }
 }

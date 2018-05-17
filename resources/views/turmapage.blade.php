@@ -3,6 +3,9 @@
 @extends('adminlte::page')
 
 @section('title', 'Treinamento')
+@section('content_header')
+    <h1>Turma</h1>
+@stop
 
 @section('content')
 	 @if (\Session::has('success'))
@@ -14,20 +17,24 @@
       <?php
 
       $treinamento = App\Treinamento::where('idtreinamento',$turma->idtreinamento)->first();
-    	echo "<h1>" .$turma->turma. "<h1>";
-    	echo "<h2> Data Inicio:  ".$turma->dateInicio. "<h2>";
-    	echo "<h2> Data Final :  ".$turma->dateFim. "<h2>";
-
-      echo "<h2> Ver mais sobre o Treinamento: ".$treinamento->nometreinamento. "<h2>"
+    	echo "<h1><center>" .$turma->turma. "<center><h1>";
+    	echo "<h2><center> Data Inicio:  ".$turma->dateInicio. "<center><h2>";
+    	echo "<h2><center> Data Final :  ".$turma->dateFim. "<center><h2>";
       ?>
 
-      <a href="/" class="btn btn-info btn-lg btn-block"> Ver Mais</a>
-
+      <div>
+        <div>
+          <h2> <center>Treinamento: {{{$treinamento->nometreinamento}}} </center></h2>
+        </div>
+        <div>
+          <a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}" class="btn btn-info btn-lg btn-block"> Ver Treinamento</a>
+        </div>  
+      </div>  
       <a href="/" class="btn btn-info btn-lg btn-block"> Voltar</a>
 	
     @endif
     @if(Auth::guest())
-       	<div>
+       	<div class="form-group col-md-4" style="margin-top:60px">
             <h1><center>Você precisa estar logado para acessar essa aplicação:</center></h1>
             <a href="/login" class="btn btn-info btn-lg btn-block"> Login</a>
             <h1><center> Nao possui login?</center></h1>

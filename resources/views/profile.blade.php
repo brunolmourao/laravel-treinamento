@@ -33,6 +33,7 @@
           <th>Nota</th>
           <th>Aprovado</th>
           <th>Número de Faltas</th>
+          <th colspan="1">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -46,6 +47,7 @@
         <td>{{$hist['nota']}}</td>
         <td>{{$hist['aprovado']}}</td>
         <td>{{$hist['faltas']}}</td>
+        <td><a href="{!! route('verTurma', ['id'=>$turma->idturma]) !!}" class="btn btn-warning">Ver Mais</a></td>
       </tr>
       @endforeach
     </tbody>
