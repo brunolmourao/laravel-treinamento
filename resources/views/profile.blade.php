@@ -26,7 +26,7 @@
     	echo "<h2> Whatsapp:  ".$user->whatsapp. "<h2>";
       ?>
 
-      <table class="table table-hover">
+      <table class="table table-hover" align="right">
       <thead>
         <tr>
           <th>Nome Turma</th>
@@ -43,11 +43,11 @@
         <?php
           $turma = App\Turma::where('idturma',$hist->idturma)->first();
         ?>
-        <td>{{$turma['turma']}}</td>
+        <td>{{$turma['turma']}}</td> 
         <td>{{$hist['nota']}}</td>
         <td>{{$hist['aprovado']}}</td>
         <td>{{$hist['faltas']}}</td>
-        <td><a href="{!! route('verTurma', ['id'=>$turma->idturma]) !!}" class="btn btn-warning">Ver Mais</a></td>
+        <td><a href="{!! route('verTurma', ['id'=>$turma->idturma]) !!}" class="btn btn-primary">Ver Mais</a></td>
       </tr>
       @endforeach
     </tbody>

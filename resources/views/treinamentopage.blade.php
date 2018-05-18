@@ -39,7 +39,7 @@
         <td>{{$modulo['instrutor']}}</td>
         <td>{{$modulo['cargahoraria']}}</td>
         
-        <td><a href="/" class="btn btn-warning">Ver Mais</a></td>
+        <td><a href="{!! route('verModulo', ['id'=>$modulo->idmodulo]) !!}" class="btn btn-warning">Ver Mais</a></td>
       </tr>
       @endforeach
 
@@ -56,7 +56,7 @@
          echo "<h1><center> Turmas </center><h1>";
       ?>
       @foreach($turmas as $turma)
-        <td>{{$turma['turma']}}</td>
+        <td alingn = "center">{{$turma['turma']}}</td>
         <td>{{$turma['dateInicio']}}</td>
         <td>{{$turma['dateFim']}}</td>
       </tr>
