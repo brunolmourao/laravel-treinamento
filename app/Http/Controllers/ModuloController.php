@@ -23,7 +23,7 @@ class ModuloController extends Controller
         	$treinamento = Treinamento::where('nometreinamento',$request->nometreinamento)->first();
             $modulo->nomemodulo = $request->get('nomemodulo');
             $modulo->sumario = $request->get('sumario');
-            $modulo->ementa = $request->get('ementa');
+            $modulo->ementa = $request->file('ementa');
             $modulo->idtreinamento = $treinamento->idtreinamento;
             $modulo->instrutor = $request->get('instrutor');
             $modulo->cargahoraria = $request->get('cargahoraria');	

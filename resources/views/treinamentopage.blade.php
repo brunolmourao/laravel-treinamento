@@ -61,7 +61,6 @@
         <td>{{$turma['dateFim']}}</td>
       </tr>
       @endforeach
-
       <div style ="position: absolute; bottom: 0;">
         <a href="/treinamento" class="btn btn-info btn-lg btn-block"> Voltar</a>
 	     </div>

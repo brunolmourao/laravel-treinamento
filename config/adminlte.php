@@ -116,7 +116,7 @@ return [
         ],
         [
             'text'        => 'Home',
-            'url'         => '/',
+            'url'         => '/home',
             'icon'        => 'home',
             'label'       => 4,
             'label_color' => 'success',
@@ -143,36 +143,30 @@ return [
                     'url'  => '/historico/create',
                 ],
                 [
-                    'text'    => 'Adicionar',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Adicionar Turma',
-                            'url'  => '/turma/create',
-                        ],
-                        [
-                            'text'    => 'Adicionar Treinamento',
-                            'url'     => '/treinamento/create',
-                        ],
-                    ],
+                    'text' => 'Adicionar Turma',
+                    'url'  => '/turma/create',
                 ],
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
+                    'text'    => 'Adicionar Treinamento',
+                    'url'     => '/treinamento/create',
+                ],
+                [
+                    'text'    => 'Adicionar Modulo',
+                    'url'     => '/modulo/create',
                 ],
             ],
         ],
         'CURSOS',
         [
             'text'       => 'Treinamentos',
-            'icon_color' => 'red',
+            'icon' => 'sticky-note ',
             'submenu' => [
                 [
                     'text' => 'Cursos do aluno',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'Treinamentos',
+                    'text'    => 'Componentes',
                     'url'     => '#',
                     'submenu' => [
                         [
@@ -182,6 +176,10 @@ return [
                         [
                             'text'    => 'Turmas',
                             'url'     => '/turma',
+                        ],
+                        [
+                            'text'    =>'Modulos',
+                            'url'     =>'/modulo'            
                         ],
                     ],
                 ],
