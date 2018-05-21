@@ -30,6 +30,7 @@ class HistoricoController extends Controller
                 $historico->aprovado=$request->get('aprovado');
                 $historico->idpessoas=$pessoa->idpessoas;
                 $historico->idturma=$turma->idturma;
+                $historico->terminada= '0';
                 $historico->save();
             }
         	return redirect('historico')->with('success', 'Information has been added');
@@ -52,6 +53,11 @@ class HistoricoController extends Controller
     public function update(Request $request, $id)
     {
         $historico= Historico::find($id);
+        $turma = Turma::where('idturma',$historico->idturma)->first();
+        $hoje = date("Y-m-d");
+        if(strtotime($turma->datefim) < $hoje){
+            $historico->terminada = '1';
+        }
         $historico->faltas=$request->get('faltas');
         $historico->nota=$request->get('nota');
         $historico->aprovado=$request->get('aprovado');

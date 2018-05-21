@@ -179,7 +179,11 @@ return [
                         ],
                         [
                             'text'    =>'Modulos',
-                            'url'     =>'/modulo'            
+                            'url'     =>'/modulo',            
+                        ],
+                        [
+                            'text'    =>'Históricos',
+                            'url'     =>'/historico',    
                         ],
                     ],
                 ],
