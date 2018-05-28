@@ -13,14 +13,35 @@
      @if(Auth::check())
       <?php
       $treinamento = App\Treinamento::where('idtreinamento',$modulo->idtreinamento)->first();
+      $professores = App\Professor::where('idmodulo',$modulo->idmodulo)->get();
     	echo "<h1><center>" .$modulo->nomemodulo. "</center><h1>";
     	echo "<h2> Sumário:  ".$modulo->sumario. "<h2>";
-    	echo "<h2> Instrutor :  ".$modulo->instrutor. "<h2>";
       echo "<h2>Carga Horária: " .$modulo->cargahoraria. "<h2>";
       echo "<h2> Esse módulo pertençe ao treinamento :".$treinamento->nometreinamento."<h2>";
       ?>
+      <table class="table table-striped">
+        <caption>Instrutores</caption>
+    <thead>
+      <tr>
+        <th>Professor</th>
+        <th>Email</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      @foreach($professores as $prof)
+      <tr>
+        <?php
+          $pessoa = App\Pessoa::where('idpessoas',$prof->idpessoas)->first();
+        ?>
+        <td>{{$pessoa['nomepessoa']}}</td>
+        <td>{{$pessoa['email']}}</td>
+        <td><a href="{!! route('verProfessor', ['id'=>$prof->idpessoas]) !!}" class="btn btn-warning">Ver Mais</a></td>
+      </tr>
+      @endforeach
       <div>
-        <a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}">Ver mais sobre Treinamento</a>
+        <li><a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}">Ver mais sobre Treinamento</a></li>
       </div>
       <div style ="position: absolute; bottom: 0;">
         <a href="/" class="btn btn-info btn-lg btn-block"> Voltar</a>

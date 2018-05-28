@@ -16,8 +16,8 @@
      @endif
      @if(Auth::check())
       <?php
-      $pessoa = App\Professor::find($professor->idprofessor)->pessoa;
-      $modulos = App\Modulo::where('idmodulo',$professor->idmod);
+      $pessoa = App\Professor::find($professor->idpessoas)->pessoa;
+      $modulos = App\Modulo::where('idmodulo',$professor->idmodulo)->get();
     	echo "<h2> Nome do Professor:  ".$pessoa->nomepessoa. "<h2>";
     	echo "<h2> Matricula:  ".$pessoa->matpessoas. "<h2>";
     	echo "<h2> Email:  ".$pessoa->email. "<h2>";
