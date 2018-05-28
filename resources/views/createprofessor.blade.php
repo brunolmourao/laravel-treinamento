@@ -5,7 +5,7 @@
 @section('title', 'Treinamento')
 
 @section('content_header')
-    <h1>Criar Modulo</h1>
+    <h1>Cadastrar Professor</h1>
 @stop
 
 @section('content')
@@ -22,48 +22,27 @@
       </div><br />
      @endif
       @if(Auth::check())
-      <form method="post" action="{{url('modulo')}}" enctype="multipart/form-data">
+      <form method="post" action="{{url('professor')}}" enctype="multipart/form-data">
         @csrf
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
-            <label for="Modulo">Nome Modulo :</label>
-            <input type="text" class="form-control" name="nomemodulo">
+            <label for="Matricula">Matricula do Professor:</label>
+            <input type="text" class="form-control" name="matricula">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-              <label for="Modulo">Sumario :</label>
-              <input type="text" class="form-control" name="sumario">
-            </div>
-          </div>
-        <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="Modulo">Ementa :</label>
-              <input type="file" class="form-control" name="ementa">
-            </div>
-          </div>
-           <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="Modulo">Carga Horária :</label>
-              <input type="number" class="form-control" name="cargahoraria">
-            </div>
-          </div>
-           <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="Modulo">Nome Treinamento :</label>
-              <input type="text" class="form-control" name="nometreinamento">
+              <label for="Turma">Nome Modulo:</label>
+              <input type="text" class="form-control" name="nomemodulo">
             </div>
           </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4" style="margin-top:60px">
             <button type="submit" class="btn btn-success">Submit</button>
-            <a href="{{action('ModuloController@index')}}" class="btn btn-default">Voltar</a>
+            <a href="{{action('ProfessorController@index')}}" class="btn btn-default">Voltar</a>
           </div>
         </div>
       </form>

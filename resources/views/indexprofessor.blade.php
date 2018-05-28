@@ -5,10 +5,6 @@
 
 @section('title', 'Treinamento')
 
-@section('content_header')
-    <h1>Lista de Modulos</h1>
-@stop
-
 @section('content')
     <!DOCTYPE html>
 <html>
@@ -27,28 +23,27 @@
     <table class="table table-striped">
     <thead>
       <tr>
+        <th>Id</th>
+        <th>Professor</th>
         <th>Modulo</th>
-        <th>Sumário</th>
-        <th>Carga Horária</th>
-        <th>Treinamento</th>
         <th colspan="2">Action</th>
       </tr>
     </thead>
     <tbody>
       
-      @foreach($modulos as $modulo)
+      @foreach($professores as $prof)
       <tr>
         <?php
-          $treinamento = App\Treinamento::where('idtreinamento',$modulo->idtreinamento)->first();
+          $pessoa = App\Professor::find($prof->idprofessor)->pessoa;
+          $modulo = App\Modulo::where('idmodulo',$prof->idmodulo)->first();
         ?>
+        <td>{{$prof['idprofessor']}}</td>
+        <td>{{$pessoa['nomepessoa']}}</td>
         <td>{{$modulo['nomemodulo']}}</td>
-        <td>{{$modulo['sumario']}}</td>
-        <td>{{$modulo['cargahoraria']}}</td>
-        <td>{{$treinamento['nometreinamento']}}</td>
         
-        <td><a href="{!! route('verModulo', ['id'=>$modulo->idmodulo]) !!}" class="btn btn-warning">Ver</a></td>
+        <td><a href="{!! route('verProfessor', ['id'=>$prof->idprofessor]) !!}" class="btn btn-warning">Ver Mais</a></td>
         <td>
-          <form action="{{action('ModuloController@destroy', $modulo['idmodulo'])}}" method="post">
+          <form action="{{action('ProfessorController@destroy', $prof['idprofessor'])}}" method="post">
             @csrf
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Deletar</button>

@@ -26,7 +26,6 @@ class CreateHistoricoTable extends Migration
             });
             Schema::table('historico', function($table) {
                 $table->foreign('idpessoas')->references('idpessoas')->on('pessoas')->OnDelete('cascade');
-                $table->foreign('idturma')->references('idturma')->on('turma')->OnDelete('cascade');
             });
 
         }    
@@ -40,7 +39,6 @@ class CreateHistoricoTable extends Migration
     public function down()
     {
         Schema::table('historico', function (Blueprint $table) {
-            $table->dropForeign(['idturma']);
             $table->dropForeign(['idpessoas']);
         });
         Schema::dropIfExists('historico');

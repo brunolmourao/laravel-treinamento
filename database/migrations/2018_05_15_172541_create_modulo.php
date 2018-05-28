@@ -21,7 +21,6 @@ class CreateModulo extends Migration
                 $table->string('nomemodulo');
                 $table->string('sumario');
                 $table->binary('ementa');
-                $table->string('instrutor');
                 $table->decimal('cargahoraria');
                 $table->timestamps();
             });

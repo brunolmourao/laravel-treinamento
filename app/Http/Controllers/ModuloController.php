@@ -25,7 +25,6 @@ class ModuloController extends Controller
             $modulo->sumario = $request->get('sumario');
             $modulo->ementa = $request->file('ementa');
             $modulo->idtreinamento = $treinamento->idtreinamento;
-            $modulo->instrutor = $request->get('instrutor');
             $modulo->cargahoraria = $request->get('cargahoraria');	
             $modulo->save();
             return redirect('modulo')->with('success', 'Information has been added');      	
@@ -51,7 +50,6 @@ class ModuloController extends Controller
         $modulo->nomemodulo = $request->get('nomemodulo');
         $modulo->sumario = $request->get('sumario');
         $modulo->ementa = $request->get('ementa');
-        $modulo->instrutor = $request->get('instrutor');
         $modulo->cargahoraria = $request->get('cargahoraria');
         $modulo->save();
         return redirect('modulo');

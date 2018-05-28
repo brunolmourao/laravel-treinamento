@@ -154,6 +154,10 @@ return [
                     'text'    => 'Adicionar Modulo',
                     'url'     => '/modulo/create',
                 ],
+                [
+                    'text'  =>'Adicionar Professor',
+                    'url'   =>'/professor/create'
+                ],
             ],
         ],
         'CURSOS',
@@ -185,17 +189,13 @@ return [
                             'text'    =>'Históricos',
                             'url'     =>'/historico',    
                         ],
+                        [
+                            'text'  =>'Professores',
+                            'url'   =>'/professor',
+                        ],
                     ],
                 ],
             ],
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
         ],
     ],
 
