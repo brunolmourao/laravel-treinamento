@@ -30,7 +30,7 @@
         <th>Treinamento</th>
         <th>Carga Horaria</th>
         <th>Realizador</th>
-        <th colspan="2">Action</th>
+        <th colspan="2"></th>
       </tr>
     </thead>
     <tbody>
@@ -42,6 +42,8 @@
         <td>{{$treinamento['realizador']}}</td>
         
         <td><a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}" class="btn btn-warning">Ver Treinamento</a></td>
+        @if(Auth::user()->usertype == "1" || Auth::user()->usertype == "2")
+        <td><a href="{{action('TreinamentoController@edit', $treinamento['idtreinamento'])}}" class="btn btn-warning">Editar</a></td>
         <td>
           <form action="{{action('TreinamentoController@destroy', $treinamento['idtreinamento'])}}" method="post">
             @csrf
@@ -50,6 +52,8 @@
           </form>
         </td>
       </tr>
+        @endif
+        
       @endforeach
       @endif
 

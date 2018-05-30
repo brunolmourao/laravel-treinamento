@@ -5,6 +5,10 @@
 
 @section('title', 'Treinamento')
 
+@section('content_header')
+    <h1>Lista de Professores Cadastrados</h1>
+@stop
+
 @section('content')
     <!DOCTYPE html>
 <html>
@@ -42,6 +46,7 @@
         <td>{{$modulo['nomemodulo']}}</td>
         
         <td><a href="{!! route('verProfessor', ['id'=>$prof->idprofessor]) !!}" class="btn btn-warning">Ver Mais</a></td>
+        @if(Auth::user()->usertype == "1" || Auth::user()->usertype == "2")
         <td>
           <form action="{{action('ProfessorController@destroy', $prof['idprofessor'])}}" method="post">
             @csrf
@@ -49,6 +54,7 @@
             <button class="btn btn-danger" type="submit">Deletar</button>
           </form>
         </td>
+        @endif
       </tr>
       @endforeach
       @endif

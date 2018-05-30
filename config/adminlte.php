@@ -108,7 +108,7 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'Treinamento dashboard',
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
@@ -121,27 +121,24 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        'ACCOUNT SETTINGS',
+        'Configurações de Conta',
         [
-            'text' => 'Profile',
+            'text' => 'Perfil',
             'url'  => '/profile',
             'icon' => 'user',
         ],
         [
-            'text' => 'Change Password',
+            'text' => 'Mudar Senha',
             'url'  => '/changePassword',
             'icon' => 'lock',
         ],
 
-        'APPLICATION LOGIC',
+        'Funcionalidades Professor',
         [
-            'text'    => 'CRUD',
+            'text'    => 'Ações de Professor',
             'icon'    => 'plus-square',
+            'can'     =>'professor-only',  
             'submenu' => [
-                [
-                    'text' => 'Adicionar Histórico',
-                    'url'  => '/historico/create',
-                ],
                 [
                     'text' => 'Adicionar Turma',
                     'url'  => '/turma/create',
@@ -153,7 +150,39 @@ return [
                 [
                     'text'    => 'Adicionar Modulo',
                     'url'     => '/modulo/create',
-                    'can' => 'professor-only'
+                ],
+                [
+                    'text' => 'Histórico',
+                    'url'  => '#',
+                    'submenu' =>[
+                        [
+                            'text' => 'Adicionar Histórico',
+                            'url'  => '/historico/create',
+                        ],
+                        [
+                            'text' => 'Ver Históricos',
+                            'url'  => '/historico',
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Ações de admin',
+            'icon'    => 'cog',
+            'can'     =>'admin-only',  
+            'submenu' => [
+                [
+                    'text' => 'Adicionar Turma',
+                    'url'  => '/turma/create',
+                ],
+                [
+                    'text'    => 'Adicionar Treinamento',
+                    'url'     => '/treinamento/create',
+                ],
+                [
+                    'text'    => 'Adicionar Modulo',
+                    'url'     => '/modulo/create',
                 ],
                 [
                     'text'  =>'Atribuir  Professor',
@@ -161,9 +190,8 @@ return [
                 ],
             ],
         ],
-        'CURSOS',
         [
-            'text'       => 'Treinamentos',
+            'text'       => 'Cursos e Componentes',
             'icon' => 'sticky-note ',
             'submenu' => [
                 [
@@ -175,20 +203,12 @@ return [
                     'url'     => '#',
                     'submenu' => [
                         [
-                            'text' => 'Treinamento',
-                            'url'  => '/treinamento',
-                        ],
-                        [
                             'text'    => 'Turmas',
                             'url'     => '/turma',
                         ],
                         [
-                            'text'    =>'Modulos',
-                            'url'     =>'/modulo',            
-                        ],
-                        [
-                            'text'    =>'Históricos',
-                            'url'     =>'/historico',    
+                            'text' => 'Treinamentos',
+                            'url'  => '/treinamento',
                         ],
                         [
                             'text'  =>'Professores',

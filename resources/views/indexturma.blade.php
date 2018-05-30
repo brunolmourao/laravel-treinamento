@@ -47,6 +47,8 @@
         <td>{{$treinamento['nometreinamento']}}</td>
         
         <td><a href="{!! route('verTurma', ['id'=>$turma->idturma]) !!}" class="btn btn-warning">Ver</a></td>
+        @if(Auth::user()->usertype == "1" || Auth::user()->usertype == "2")
+         <td><a href="{{action('TurmaController@edit', $turma['idturma'])}}" class="btn btn-warning">Editar</a></td>
         <td>
           <form action="{{action('TurmaController@destroy', $turma['idturma'])}}" method="post">
             @csrf
@@ -54,6 +56,7 @@
             <button class="btn btn-danger" type="submit">Deletar</button>
           </form>
         </td>
+        @endif
       </tr>
       @endforeach
       @endif

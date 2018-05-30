@@ -27,7 +27,9 @@
     <table class="table table-striped">
     <thead>
       <tr>
-        <th>Id</th>
+        <th>Turma</th>
+        <th>Aluno</th>
+        <th>Nota</th>
         <th>Faltas</th>
         <th>Aprovado</th>
         <th colspan="2">Action</th>
@@ -36,8 +38,14 @@
     <tbody>
       
       @foreach($historicos as $hist)
+      <?php
+        $aluno = App\Pessoa::where('idpessoas',$hist->idpessoas)->first();
+        $turma = App\Turma::where('idturma',$hist->idturma)->first();
+      ?>
       <tr>
-        <td>{{$hist['idhistorico']}}</td>
+        <td>{{$turma['turma']}}</td>
+        <td>{{$aluno['nomepessoa']}}</td>
+        <td>{{$hist['nota']}}</td>
         <td>{{$hist['faltas']}}</td>
         <td>{{$hist['aprovado']}}</td>
         

@@ -31,7 +31,7 @@
         <th>Sumário</th>
         <th>Carga Horária</th>
         <th>Treinamento</th>
-        <th colspan="2">Action</th>
+        <th colspan="2"></th>
       </tr>
     </thead>
     <tbody>
@@ -47,6 +47,7 @@
         <td>{{$treinamento['nometreinamento']}}</td>
         
         <td><a href="{!! route('verModulo', ['id'=>$modulo->idmodulo]) !!}" class="btn btn-warning">Ver</a></td>
+         <td><a href="{{action('ModuloController@edit', $modulo['idmodulo'])}}" class="btn btn-warning">Editar</a></td>
         <td>
           <form action="{{action('ModuloController@destroy', $modulo['idmodulo'])}}" method="post">
             @csrf
