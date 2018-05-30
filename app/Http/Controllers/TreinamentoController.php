@@ -54,7 +54,6 @@ class TreinamentoController extends Controller
 
     public function verTreinamento($id){
         $treinamento = Treinamento::find($id);
-
         return view('treinamentopage',compact('treinamento'));
     }
 }

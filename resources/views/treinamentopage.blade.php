@@ -34,9 +34,13 @@
       
       @foreach($modulos as $modulo)
       <tr>
+        <?php
+          $professor = App\Professor::where('idmodulo',$modulo->idmodulo)->first();
+          $pessoas = App\Pessoa::where('idpessoas',$professor->idpessoas)->first();
+        ?>
         <td>{{$modulo['nomemodulo']}}</td>
         <td>{{$modulo['sumario']}}</td>
-        <td>{{$modulo['instrutor']}}</td>
+        <td>{{$pessoas['nomepessoa']}}</td>
         <td>{{$modulo['cargahoraria']}}</td>
         
         <td><a href="{!! route('verModulo', ['id'=>$modulo->idmodulo]) !!}" class="btn btn-warning">Ver Mais</a></td>

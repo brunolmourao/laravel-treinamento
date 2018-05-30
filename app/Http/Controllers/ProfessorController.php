@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Pessoa;
 use App\Modulo;
 use App\Professor;
+use App\treinamento;
 
 class ProfessorController extends Controller
 {
@@ -22,8 +23,9 @@ class ProfessorController extends Controller
     	$professor = new Professor();
         if(!(Pessoa::where('matpessoas',$request->matricula)->get()->isEmpty())){
         	$pessoa = Pessoa::where('matpessoas',$request->matricula)->first();
-        	if(!(Modulo::where('nomemodulo',$request->nomemodulo)->get()->isEmpty() )){
-                $modulo = Modulo::where('nomemodulo',$request->nomemodulo)->first();
+            $treinamento = Treinamento::where('nometreinamento',$request->nometreinamento)->first();
+        	if(!(Modulo::where('nomemodulo',$request->nomemodulo)->where('idtreinamento',$treinamento->idtreinamento)->get()->isEmpty() )){
+                $modulo = Modulo::where('nomemodulo',$request->nomemodulo)->where('idtreinamento',$treinamento->idtreinamento)->first();
                 $professor->idpessoas=$pessoa->idpessoas;
                 $professor->idmodulo=$modulo->idmodulo;
                 $professor->save();

@@ -10,8 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'PessoasController@index');
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
@@ -26,9 +24,10 @@ Route::resource('treinamento','TreinamentoController');
 Route::resource('modulo','ModuloController');
 Route::resource('professor','ProfessorController');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index');
 Route::get('/changePassword','HomeController@showChangePasswordForm');
 Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
 Route::get('turma/verTurma/{id}',['as'=> 'verTurma' , 'uses' => 'TurmaController@verTurma']);
 Route::get('treinamento/verTreinamento/{id}',['as'=> 'verTreinamento' , 'uses' => 'TreinamentoController@verTreinamento']);
 Route::get('modulo/verModulo/{id}',['as'=> 'verModulo' , 'uses' => 'ModuloController@verModulo']);
-Route::get('professor/verProfessor/{id}',['as'=> 'verProfessor' , 'uses' => 'ProfessorController@verProfessor']);
+Route::get('professor/verProfessor/{id}',['as'=> 'verProfessor' , 'uses' => 'ProfessorController@verpro']);

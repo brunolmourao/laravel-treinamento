@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'layout' => null,
+    'layout' => 'fixed',
 
     /*
     |--------------------------------------------------------------------------
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'collapse_sidebar' => true,
+    'collapse_sidebar' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -153,9 +153,10 @@ return [
                 [
                     'text'    => 'Adicionar Modulo',
                     'url'     => '/modulo/create',
+                    'can' => 'professor-only'
                 ],
                 [
-                    'text'  =>'Adicionar Professor',
+                    'text'  =>'Atribuir  Professor',
                     'url'   =>'/professor/create'
                 ],
             ],

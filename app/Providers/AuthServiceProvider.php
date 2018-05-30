@@ -25,6 +25,19 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('admin-only', function ($user) {
+            if($user->usertype == 1)
+            {
+                return true;
+            }
+            return false;
+        });
+        Gate::define('professor-only', function ($user) {
+            if($user->usertype == 2)
+            {
+                return true;
+            }
+            return false;
+        });
     }
 }

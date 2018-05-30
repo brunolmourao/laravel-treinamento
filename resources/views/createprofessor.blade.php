@@ -5,7 +5,7 @@
 @section('title', 'Treinamento')
 
 @section('content_header')
-    <h1>Cadastrar Professor</h1>
+    <h1>Atribuir Professor</h1>
 @stop
 
 @section('content')
@@ -36,6 +36,13 @@
             <div class="form-group col-md-4">
               <label for="Turma">Nome Modulo:</label>
               <input type="text" class="form-control" name="nomemodulo">
+            </div>
+          </div>
+          <div class="row">
+          <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+              <label for="Treinamento">Nome Treinamento:</label>
+              <input type="text" class="form-control" name="nometreinamento">
             </div>
           </div>
         <div class="row">

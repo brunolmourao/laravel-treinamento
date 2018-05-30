@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use App\Modulo;
 use App\Treinamento;
 
@@ -10,7 +11,10 @@ class ModuloController extends Controller
 {
     public function create()
     {
-        return view('createmodulo');
+        if (Gate::allows('professor-only', auth()->user())) {
+            return view('createmodulo');
+         }
+         return 'Você não é um Professor';   
     }
     public function show()
     {
