@@ -53,6 +53,7 @@
         <th>Turma</th>
         <th>Data Inicio</th>
         <th>Data Fim</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -63,10 +64,11 @@
         <td alingn = "center">{{$turma['turma']}}</td>
         <td>{{$turma['dateInicio']}}</td>
         <td>{{$turma['dateFim']}}</td>
+        <td><a href="{!! route('verTurma', ['id'=>$turma->idturma]) !!}" class="btn btn-warning">Ver Mais</a></td>
       </tr>
       @endforeach
-      <div style ="position: absolute; bottom: 0;">
-        <a href="/treinamento" class="btn btn-info btn-lg btn-block"> Voltar</a>
+      <div style ="position: absolute; bottom: 0; right: 0;">
+        <a href="/home" class="btn btn-info btn-lg btn-block"> Sair</a>
 	     </div>
     @endif
     @if(Auth::guest())

@@ -39,5 +39,12 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('aluno-only', function ($user) {
+            if($user->usertype == 0)
+            {
+                return true;
+            }
+            return false;
+        });
     }
 }

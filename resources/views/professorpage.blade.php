@@ -46,6 +46,9 @@
     </tbody>
    </table>     	
     @endif
+    <div style ="position: absolute; bottom: 0; right: 0">
+        <a href="/home" class="btn btn-info btn-lg btn-block"> Sair</a>
+       </div>
     @if(Auth::guest())
        	<div>
             <h1><center>Você precisa estar logado para acessar essa aplicação:</center></h1>

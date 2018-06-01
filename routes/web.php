@@ -16,6 +16,9 @@ Route::get('/dashboard', function () {
 Route::get('/profile', function () {
     return view('profile');
 });
+Route::get('/profileprof', function () {
+    return view('profileprofessor');
+});
 Auth::routes();
 Route::resource('pessoa','PessoasController');
 Route::resource('historico','HistoricoController');
@@ -23,6 +26,7 @@ Route::resource('turma','TurmaController');
 Route::resource('treinamento','TreinamentoController');
 Route::resource('modulo','ModuloController');
 Route::resource('professor','ProfessorController');
+Route::resource('turmarequest','TurmaRequestController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index');
 Route::get('/changePassword','HomeController@showChangePasswordForm');
@@ -30,4 +34,4 @@ Route::post('/changePassword','HomeController@changePassword')->name('changePass
 Route::get('turma/verTurma/{id}',['as'=> 'verTurma' , 'uses' => 'TurmaController@verTurma']);
 Route::get('treinamento/verTreinamento/{id}',['as'=> 'verTreinamento' , 'uses' => 'TreinamentoController@verTreinamento']);
 Route::get('modulo/verModulo/{id}',['as'=> 'verModulo' , 'uses' => 'ModuloController@verModulo']);
-Route::get('professor/verProfessor/{id}',['as'=> 'verProfessor' , 'uses' => 'ProfessorController@verpro']);
+Route::get('professor/verProfessor/{id}',['as'=> 'verProfessor' , 'uses' => 'ProfessorController@verProfessor']);

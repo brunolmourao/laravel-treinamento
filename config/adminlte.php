@@ -123,6 +123,12 @@ return [
         ],
         'Configurações de Conta',
         [
+            'text' => 'Perfil Professor',
+            'url'  => '/profileprof',
+            'icon' => 'user',
+            'can'  => 'professor-only'
+        ],
+        [
             'text' => 'Perfil',
             'url'  => '/profile',
             'icon' => 'user',
