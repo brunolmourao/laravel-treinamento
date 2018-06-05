@@ -17,9 +17,9 @@
       <?php
 
       $treinamento = App\Treinamento::where('idtreinamento',$turma->idtreinamento)->first();
-    	echo "<h1><center>" .$turma->turma. "<center><h1>";
-    	echo "<h2><center> Data Inicio:  ".$turma->dateInicio. "<center><h2>";
-    	echo "<h2><center> Data Final :  ".$turma->dateFim. "<center><h2>";
+    	echo "<h1><center><strong> Turma: " .$turma->turma. "<strong><center><h1>";
+    	echo "<h2> Data Inicio:  ".$turma->dateInicio. "<h2>";
+    	echo "<h2> Data Final :  ".$turma->dateFim. "<h2>";
       ?>
       <div class="row">
           <div class="col-md-4"></div>
@@ -28,7 +28,7 @@
             <a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}" class="btn btn-info btn-lg btn-block">Ver Treinamento</a>
           </div>
         </div>
-      <a href="/turma" class="btn btn-info btn-lg btn-block"> Voltar</a>
+      <a href="/turma" class="btn btn-info btn-lg "> Voltar</a>
     @endif
     @if(Auth::guest())
        	<div class="form-group col-md-4" style="margin-top:60px">

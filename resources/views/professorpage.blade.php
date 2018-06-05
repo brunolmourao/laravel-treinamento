@@ -17,7 +17,7 @@
      @if(Auth::check())
       <?php
       $pessoa = App\Professor::find($professor->idpessoas)->pessoa;
-      $modulos = App\Modulo::where('idmodulo',$professor->idmodulo)->get();
+      $professores = App\Professor::where('idpessoas',$pessoa->idpessoas)->get();
     	echo "<h2> Nome do Professor:  ".$pessoa->nomepessoa. "<h2>";
     	echo "<h2> Matricula:  ".$pessoa->matpessoas. "<h2>";
     	echo "<h2> Email:  ".$pessoa->email. "<h2>";
@@ -29,22 +29,30 @@
       <table class="table table-hover" align="right">
       <thead>
         <tr>
-          <th>Nome Modulo:</th>
-          <th>Carga Horária:</th>
-          <th></th>
+          <th>Modulo</th>
+          <th>Treinamento</th>
+          <th>Sumario</th>
+          <th>Carga Horária</th>
+          <th colspan="1"></th>
         </tr>
       </thead>
       <tbody>
       
-      @foreach($modulos as $mod)
+      @foreach($professores as $prof)
       <tr>
-        <td>{{$mod['nomemodulo']}}</td> 
-        <td>{{$mod['cargahoraria']}}</td>
-        <td><a href="{!! route('verModulo', ['id'=>$mod->idmodulo]) !!}" class="btn btn-primary">Ver Mais</a></td>
+        <?php
+          $modulo = App\Modulo::where('idmodulo',$prof->idmodulo)->first();
+          $treinamento = App\Treinamento::where('idtreinamento',$modulo->idtreinamento)->first();  
+        ?>
+        <td>{{$modulo['nomemodulo']}}</td> 
+        <td>{{$treinamento['nometreinamento']}}</td>
+        <td>{{$modulo['sumario']}}</td>
+        <td>{{$modulo['cargahoraria']}}</td> 
+        <td><a href="{!! route('verModulo', ['id'=>$modulo->idmodulo]) !!}" class="btn btn-primary">Ver Mais</a></td>
       </tr>
       @endforeach
     </tbody>
-   </table>     	
+   </table>          	
     @endif
     <div style ="position: absolute; bottom: 0; right: 0">
         <a href="/home" class="btn btn-info btn-lg btn-block"> Sair</a>

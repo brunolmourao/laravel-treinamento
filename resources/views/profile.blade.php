@@ -9,21 +9,21 @@
 @stop
 
 @section('content')
-	 @if (\Session::has('success'))
+   @if (\Session::has('success'))
       <div class="alert alert-success">
         <p>{{ \Session::get('success') }}</p>
       </div><br />
      @endif
      @if(Auth::check())
       <?php
-    	 $user = Auth::User();
+       $user = Auth::User();
       $pessoa = App\Pessoa::where('matpessoas',$user->matricula)->first();
       $historicos = App\Historico::where('idpessoas',$pessoa->idpessoas)->get();
-    	echo "<h2> Nome do Usuario:  ".$user->name. "<h2>";
-    	echo "<h2> Matricula:  ".$user->matricula. "<h2>";
-    	echo "<h2> Email:  ".$user->email. "<h2>";
-    	echo "<h2> Telefone:  ".$user->phoneNumber. "<h2>";
-    	echo "<h2> Whatsapp:  ".$user->whatsapp. "<h2>";
+      echo "<h2> Nome do Usuario:  ".$user->name. "<h2>";
+      echo "<h2> Matricula:  ".$user->matricula. "<h2>";
+      echo "<h2> Email:  ".$user->email. "<h2>";
+      echo "<h2> Telefone:  ".$user->phoneNumber. "<h2>";
+      echo "<h2> Whatsapp:  ".$user->whatsapp. "<h2>";
       ?>
 
       <table class="table table-hover" align="right">
@@ -45,14 +45,23 @@
       <tr>
         <?php
           $turma = App\Turma::where('idturma',$hist->idturma)->first();
+          $terminada = 'Finalizada';
+          $aprovado = 'Aprovado';
+          if($hist->aprovado == 0 AND $hist->terminada == 0){
+            $terminada = 'Cursando';
+            $aprovado = 'Cursando';
+          }
+          if($hist->aprovado == 0 AND $hist->terminada == 1){
+            $aprovado = 'Reprovado';
+          }
         ?>
         <td>{{$turma['turma']}}</td> 
         <td>{{$hist['nota']}}</td>
-        <td>{{$hist['aprovado']}}</td>
+        <td>{{$aprovado}}</td>
         <td>{{$hist['faltas']}}</td>
         <td>{{$turma['dateInicio']}}</td>
         <td>{{$turma['dateFim']}}</td>
-        <td>{{$hist['terminada']}}</td>  
+        <td>{{$terminada}}</td>  
         <td><a href="{!! route('verTurma', ['id'=>$turma->idturma]) !!}" class="btn btn-primary">Ver Mais</a></td>
       </tr>
       @endforeach
@@ -60,11 +69,11 @@
    </table>     
 
     <div style ="position: absolute; bottom: 0;left:50%;">
-    	<a href="{{action('PessoasController@edit', $pessoa['idpessoas'])}}" class="btn btn-primary btn -lg btn-block"> Alterar Atributos </a>
-    </div>	
+      <a href="{{action('PessoasController@edit', $pessoa['idpessoas'])}}" class="btn btn-primary btn -lg btn-block"> Alterar Atributos </a>
+    </div>  
     @endif
     @if(Auth::guest())
-       	<div>
+        <div>
             <h1><center>Você precisa estar logado para acessar essa aplicação:</center></h1>
             <a href="/login" class="btn btn-info btn-lg btn-block"> Login</a>
             <h1><center> Nao possui login?</center></h1>

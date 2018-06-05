@@ -29,7 +29,7 @@ class TurmaRequestController extends Controller
                 $turmaRequest->idturma=$turma->idturma;
                 $turmaRequest->save();
             }
-            return redirect('/turma')->with('success', 'Requisiçõa de matrícula feita com sucesso');
+            return redirect('/turma')->with('success', 'Requisição de matrícula feita com sucesso');
         }else{
             return redirect('/turma')->with('failure', 'Information has not been added');
         }

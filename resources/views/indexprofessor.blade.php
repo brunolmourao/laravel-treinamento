@@ -29,6 +29,7 @@
       <tr>
         <th>Id</th>
         <th>Professor</th>
+        <th>Treinamento</th>
         <th>Modulo</th>
         <th colspan="2">Action</th>
       </tr>
@@ -40,9 +41,11 @@
         <?php
           $pessoa = App\Professor::find($prof->idprofessor)->pessoa;
           $modulo = App\Modulo::where('idmodulo',$prof->idmodulo)->first();
+          $treinamento = App\Treinamento::where('idtreinamento',$modulo->idtreinamento)->first();
         ?>
         <td>{{$prof['idprofessor']}}</td>
         <td>{{$pessoa['nomepessoa']}}</td>
+        <td>{{$treinamento['nometreinamento']}}</td>
         <td>{{$modulo['nomemodulo']}}</td>
         
         <td><a href="{!! route('verProfessor', ['id'=>$prof->idprofessor]) !!}" class="btn btn-warning">Ver Mais</a></td>

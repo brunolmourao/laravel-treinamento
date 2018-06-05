@@ -108,7 +108,6 @@ return [
     */
 
     'menu' => [
-        'Treinamento dashboard',
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
@@ -118,8 +117,8 @@ return [
             'text'        => 'Home',
             'url'         => '/home',
             'icon'        => 'home',
-            'label'       => 4,
-            'label_color' => 'success',
+            //'label'       => 4,
+            //'label_color' => 'success',
         ],
         'Configurações de Conta',
         [
@@ -138,8 +137,6 @@ return [
             'url'  => '/changePassword',
             'icon' => 'lock',
         ],
-
-        'Funcionalidades Professor',
         [
             'text'    => 'Ações de Professor',
             'icon'    => 'plus-square',
@@ -187,10 +184,6 @@ return [
                     'url'     => '/treinamento/create',
                 ],
                 [
-                    'text'    => 'Adicionar Modulo',
-                    'url'     => '/modulo/create',
-                ],
-                [
                     'text'  =>'Atribuir  Professor',
                     'url'   =>'/professor/create'
                 ],
@@ -204,10 +197,6 @@ return [
             'text'       => 'Cursos e Componentes',
             'icon' => 'sticky-note ',
             'submenu' => [
-                [
-                    'text' => 'Cursos do aluno',
-                    'url'  => '#',
-                ],
                 [
                     'text'    => 'Componentes',
                     'url'     => '#',
