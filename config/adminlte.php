@@ -194,6 +194,10 @@ return [
                     'text'  =>'Atribuir  Professor',
                     'url'   =>'/professor/create'
                 ],
+                [
+                    'text' =>'Ver Requisições de Matrícula',
+                    'url'  =>'/turmarequest',
+                ],
             ],
         ],
         [

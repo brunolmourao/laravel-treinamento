@@ -35,3 +35,5 @@ Route::get('turma/verTurma/{id}',['as'=> 'verTurma' , 'uses' => 'TurmaController
 Route::get('treinamento/verTreinamento/{id}',['as'=> 'verTreinamento' , 'uses' => 'TreinamentoController@verTreinamento']);
 Route::get('modulo/verModulo/{id}',['as'=> 'verModulo' , 'uses' => 'ModuloController@verModulo']);
 Route::get('professor/verProfessor/{id}',['as'=> 'verProfessor' , 'uses' => 'ProfessorController@verProfessor']);
+Route::delete('/realizarMatricula/{id}','TurmaRequestController@handleRequest');
+

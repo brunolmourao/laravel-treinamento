@@ -3,10 +3,10 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Treinamento')
+@section('title', 'Treinameto')
 
 @section('content_header')
-    <h1>Lista de Turmas</h1>
+    <h1>Requisições de Matrícula</h1>
 @stop
 
 @section('content')
@@ -24,45 +24,38 @@
       </div><br />
      @endif
     @if(Auth::check())
-    <?php
-      $user = Auth::user();
-      $pessoa = App\Pessoa::where('matpessoas',$user->matricula)->first();
-    ?>
     <table class="table table-striped">
     <thead>
       <tr>
         <th>Turma</th>
-        <th>Data Inicio</th>
-        <th>Data Fim</th>
-        <th>Treinamento</th>
+        <th>Aluno</th>
         <th colspan="2">Action</th>
       </tr>
     </thead>
     <tbody>
       
-      @foreach($turmas as $turma)
+      @foreach($turmaRequest as $req)
+      <?php
+        $aluno = App\Pessoa::where('idpessoas',$req->idpessoas)->first();
+        $turma = App\Turma::where('idturma',$req->idturma)->first();
+      ?>
       <tr>
-        <?php
-          $treinamento = App\Treinamento::where('idtreinamento',$turma->idtreinamento)->first();
-        ?>
         <td>{{$turma['turma']}}</td>
-        <td>{{$turma['dateInicio']}}</td>
-        <td>{{$turma['dateFim']}}</td>
-        <td>{{$treinamento['nometreinamento']}}</td>
-        
-        <td><a href="{!! route('verTurma', ['id'=>$turma->idturma]) !!}" class="btn btn-warning">Ver</a></td>
-        
-        <td><a href="{{action('TurmaRequestController@create')}}" class="btn btn-warning">Inscrever</a></td>
-        @if(Auth::user()->usertype == "1" || Auth::user()->usertype == "2")
-         <td><a href="{{action('TurmaController@edit', $turma['idturma'])}}" class="btn btn-warning">Editar</a></td>
+        <td>{{$aluno['matpessoas']}}</td>
         <td>
-          <form action="{{action('TurmaController@destroy', $turma['idturma'])}}" method="post">
+          <form action="{{ url('/realizarMatricula', ['id' => $req->idturmarequest]) }}" method="post">
+          <input type="hidden" name="_method" value="delete" />
+          <button class="btn btn-danger" type="submit">Aceitar Requisição</button>
+          {!! csrf_field() !!}
+        </td>
+
+        <td>
+          <form action="{{action('TurmaRequestController@destroy', $req['idturmarequest'])}}" method="post">
             @csrf
             <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Deletar</button>
+            <button class="btn btn-danger" type="submit">Deletar Requisição</button>
           </form>
         </td>
-        @endif
       </tr>
       @endforeach
       @endif
