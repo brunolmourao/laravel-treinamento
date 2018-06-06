@@ -6,7 +6,7 @@
 @section('title', 'Treinameto')
 
 @section('content_header')
-    <h1>Bem Vindo !</h1>
+    <h1>Históricos</h1>
 @stop
 
 @section('content')
@@ -24,6 +24,7 @@
       </div><br />
      @endif
     @if(Auth::check())
+     @can('professor-only')
     <table class="table table-striped">
     <thead>
       <tr>
@@ -59,6 +60,10 @@
         </td>
       </tr>
       @endforeach
+      @else
+        <h2><center>Você não tem permissão para acessar essa Página</center></h2>
+        <center><a href="{{action('HomeController@index')}}" class="btn btn-warning">Voltar</a></center>
+      @endcan
       @endif
 
       </div>

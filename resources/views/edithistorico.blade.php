@@ -17,6 +17,13 @@
   </head>
   <body>
     <div class="container">
+    @if (\Session::has('success'))
+      <div class="alert alert-success">
+        <p>{{ \Session::get('success') }}</p>
+      </div><br />
+    @endif
+      @if(Auth::check())
+      @can('professor-only')
         <form method="post" action="{{action('HistoricoController@update', $id)}}">
         @csrf
         <input name="_method" type="hidden" value="PATCH">
@@ -52,6 +59,12 @@
     </div>
   </body>
 </html>
+@else
+  <h2><center>Você não tem permissão para acessar essa Página</center></h2>
+  <center><a href="{{action('HomeController@index')}}" class="btn btn-warning">Voltar</a></center>
+@endcan
+
+@endif
 @stop
 
 @section('css')

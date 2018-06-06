@@ -18,17 +18,15 @@ class TurmaRequestController extends Controller
     {
         
     }
-    public function store(Request $request)
+    public function store($idturma,$idaluno)
     {
         $turmaRequest = new TurmaRequest();
-        if(!(Pessoa::where('matpessoas',$request->matricula)->get()->isEmpty())){
-            $pessoa = Pessoa::where('matpessoas',$request->matricula)->first();
-            if(!(Turma::where('turma',$request->turma)->get()->isEmpty() )){
-                $turma = Turma::where('turma',$request->turma)->first();
-                $turmaRequest->idpessoas=$pessoa->idpessoas;
-                $turmaRequest->idturma=$turma->idturma;
-                $turmaRequest->save();
-            }
+        if(!(Pessoa::where('idpessoas',$idaluno)->get()->isEmpty())){
+            $pessoa = Pessoa::where('idpessoas',$idaluno)->first();
+            $turma = Turma::where('idturma',$idturma)->first();
+            $turmaRequest->idpessoas=$pessoa->idpessoas;
+            $turmaRequest->idturma=$turma->idturma;
+            $turmaRequest->save();
             return redirect('/turma')->with('success', 'Requisição de matrícula feita com sucesso');
         }else{
             return redirect('/turma')->with('failure', 'Information has not been added');

@@ -26,7 +26,7 @@ Route::resource('turma','TurmaController');
 Route::resource('treinamento','TreinamentoController');
 Route::resource('modulo','ModuloController');
 Route::resource('professor','ProfessorController');
-Route::resource('turmarequest','TurmaRequestController');
+Route::resource('turmarequest','TurmaRequestController',['expect' => 'store']);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index');
 Route::get('/changePassword','HomeController@showChangePasswordForm');
@@ -36,4 +36,5 @@ Route::get('treinamento/verTreinamento/{id}',['as'=> 'verTreinamento' , 'uses' =
 Route::get('modulo/verModulo/{id}',['as'=> 'verModulo' , 'uses' => 'ModuloController@verModulo']);
 Route::get('professor/verProfessor/{id}',['as'=> 'verProfessor' , 'uses' => 'ProfessorController@verProfessor']);
 Route::delete('/realizarMatricula/{id}','TurmaRequestController@handleRequest');
+Route::get('turmarequest/store/{idturma}/{idaluno}', ['as' => 'turmarequest.store','uses' => 'TurmaRequestController@store']);
 

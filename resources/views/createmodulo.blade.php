@@ -22,6 +22,7 @@
       </div><br />
      @endif
       @if(Auth::check())
+      @can('professor-only')
       <form method="post" action="{{url('modulo')}}" enctype="multipart/form-data">
         @csrf
         <div class="row">
@@ -70,6 +71,10 @@
     </div>
   </body>
 </html>
+@else
+  <h2><center>Você não tem permissão para acessar essa Página</center></h2>
+  <center><a href="{{action('HomeController@index')}}" class="btn btn-warning">Voltar</a></center>
+@endcan
 @endif
       </div>
             @if(Auth::guest())

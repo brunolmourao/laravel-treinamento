@@ -33,14 +33,7 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
         Gate::define('professor-only', function ($user) {
-            if($user->usertype == 2)
-            {
-                return true;
-            }
-            return false;
-        });
-        Gate::define('aluno-only', function ($user) {
-            if($user->usertype == 0)
+            if($user->usertype == 2 OR $user->usertype == 1)
             {
                 return true;
             }

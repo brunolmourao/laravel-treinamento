@@ -35,7 +35,7 @@
         <th>Data Inicio</th>
         <th>Data Fim</th>
         <th>Treinamento</th>
-        <th colspan="2">Action</th>
+        <th colspan="2"></th>
       </tr>
     </thead>
     <tbody>
@@ -50,9 +50,9 @@
         <td>{{$turma['dateFim']}}</td>
         <td>{{$treinamento['nometreinamento']}}</td>
         
-        <td><a href="{!! route('verTurma', ['id'=>$turma->idturma]) !!}" class="btn btn-warning">Ver</a></td>
+        <td><a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}" class="btn btn-warning">Ver Treinamento</a></td>
         
-        <td><a href="{{action('TurmaRequestController@create')}}" class="btn btn-warning">Inscrever</a></td>
+        <td><a href="{!! route('turmarequest.store', ['idturma'=>$turma->idturma,'idaluno'=>$pessoa->idpessoas]) !!}" class="btn btn-warning">Inscrever</a></td>
         @if(Auth::user()->usertype == "1" || Auth::user()->usertype == "2")
          <td><a href="{{action('TurmaController@edit', $turma['idturma'])}}" class="btn btn-warning">Editar</a></td>
         <td>

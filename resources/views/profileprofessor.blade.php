@@ -15,6 +15,7 @@
       </div><br />
      @endif
      @if(Auth::check())
+     @can('professor-only')
       <?php
     	 $user = Auth::User();
       $pessoa = App\Pessoa::where('matpessoas',$user->matricula)->first();
@@ -56,7 +57,11 @@
 
     <div style ="position: absolute; bottom: 0;left:50%;">
     	<a href="{{action('PessoasController@edit', $pessoa['idpessoas'])}}" class="btn btn-primary btn -lg btn-block"> Alterar Atributos </a>
-    </div>	
+    </div>
+    @else
+      <h2><center>Você não tem permissão para acessar essa Página</center></h2>
+      <center><a href="{{action('HomeController@index')}}" class="btn btn-warning">Voltar</a></center>
+    @endcan	
     @endif
     @if(Auth::guest())
        	<div>

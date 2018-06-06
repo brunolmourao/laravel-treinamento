@@ -17,6 +17,8 @@ class TreinamentoController extends Controller
     public function store(Request $request)
     {
     	$treinamento = new Treinamento();
+        //$objetivo = $request->file('objetivo')
+        //$data = file_get_contents(Input::file('objetivo')->getRealPath());
         $treinamento->nometreinamento = $request->get('nome');
         $treinamento->cargahoraria = $request->get('cargahoraria');
         $treinamento->objetivo = $request->file('objetivo');
