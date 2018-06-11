@@ -12,7 +12,9 @@ class ProfessorController extends Controller
 {
     public function create()
     {
-        return view('createprofessor');
+        $profid = Professor::select('idpessoas')->get();
+        $professores = Pessoa::find($profid);
+        return view('createprofessor',compact('professores'));
     }
     public function show()
     {
@@ -20,7 +22,7 @@ class ProfessorController extends Controller
     }
     public function store(Request $request)
     {
-    	$professor = new Professor();
+        $professor = new Professor();
         if(!(Pessoa::where('matpessoas',$request->matricula)->get()->isEmpty())){
         	$pessoa = Pessoa::where('matpessoas',$request->matricula)->first();
             $treinamento = Treinamento::where('nometreinamento',$request->nometreinamento)->first();

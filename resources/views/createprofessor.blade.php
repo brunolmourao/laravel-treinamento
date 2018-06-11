@@ -27,15 +27,8 @@
         @csrf
         <div class="row">
           <div class="col-md-4"></div>
-          <div class="form-group col-md-4">
-            <label for="Matricula">Matricula do Professor:</label>
-            <input type="text" class="form-control" name="matricula">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-              <label for="Turma">Nome Modulo:</label>
+              <label for="lgFormGroupInput" >Nome Modulo:</label>
               <input type="text" class="form-control" name="nomemodulo">
             </div>
           </div>
@@ -46,6 +39,16 @@
               <input type="text" class="form-control" name="nometreinamento">
             </div>
           </div>
+        <div class="row">
+        <div class="col-md-4"></div>
+          <label for="Matriculadrop">Matricula do Professor:</label>  
+          <select id="category" name="matricula" class="selectpicker">
+          <option value="">Selecione o Professor:</option>
+          @foreach($professores as $key => $value)
+            <option value="{{$value->matpessoas}}">{{$value->matpessoas}}</option>
+          @endforeach
+          </select>
+        </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4" style="margin-top:60px">

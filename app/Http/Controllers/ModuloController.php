@@ -11,10 +11,7 @@ class ModuloController extends Controller
 {
     public function create()
     {
-        if (Gate::allows('professor-only', auth()->user())) {
-            return view('createmodulo');
-         }
-         return 'Você não é um Professor';   
+        return view('createmodulo');
     }
     public function show()
     {
@@ -22,7 +19,7 @@ class ModuloController extends Controller
     }
     public function store(Request $request)
     {
-    	$modulo = new Modulo();
+        $modulo = new Modulo();
         if(!(Treinamento::where('nometreinamento',$request->nometreinamento)->get()->isEmpty())){
         	$treinamento = Treinamento::where('nometreinamento',$request->nometreinamento)->first();
             $modulo->nomemodulo = $request->get('nomemodulo');
