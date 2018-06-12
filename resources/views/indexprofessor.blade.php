@@ -39,7 +39,7 @@
       @foreach($professores as $prof)
       <tr>
         <?php
-          $pessoa = App\Professor::find($prof->idprofessor)->pessoa;
+          $pessoa = App\Pessoa::find($prof->idpessoas);
           $modulo = App\Modulo::where('idmodulo',$prof->idmodulo)->first();
           $treinamento = App\Treinamento::where('idtreinamento',$modulo->idtreinamento)->first();
         ?>

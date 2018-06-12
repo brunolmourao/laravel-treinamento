@@ -9,7 +9,8 @@ class TurmaController extends Controller
 {
     public function create()
     {
-        return view('createturma');
+        $treinamentos = Treinamento::all(); 
+        return view('createturma',compact('treinamentos'));
     }
     public function show()
     {
@@ -18,8 +19,8 @@ class TurmaController extends Controller
     public function store(Request $request)
     {
     	$turma = new Turma();
-        if(!(Treinamento::where('nometreinamento',$request->nometreinamento)->get()->isEmpty())){
-        	$treinamento = Treinamento::where('nometreinamento',$request->nometreinamento)->first();
+        if(!(Treinamento::where('nometreinamento',$request->treinamento)->get()->isEmpty())){
+        	$treinamento = Treinamento::where('nometreinamento',$request->treinamento)->first();
             $turma->turma = $request->get('nome');
             $turma->dateInicio = $request->get('dataInicio');
             $turma->dateFim = $request->get('dataFim');

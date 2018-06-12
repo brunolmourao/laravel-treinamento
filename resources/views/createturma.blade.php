@@ -35,24 +35,27 @@
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-              <label for="Turma">Data Inicial:</label>
+              <label for="DataInicial">Data Inicial:</label>
               <input type="date" class="form-control" name="dataInicio">
             </div>
           </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-              <label for="Faltas">Data Final:</label>
+              <label for="DataFinal">Data Final:</label>
               <input type="date" class="form-control" name="dataFim">
             </div>
           </div>
         <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="Email">Nome Treinamento:</label>
-              <input type="text" class="form-control" name="nometreinamento">
-            </div>
-          </div>
+        <div class="col-md-4"></div>
+          <label for="Treinamentodrop">Treinamento:</label>  
+          <select id="category" name="treinamento" class="selectpicker">
+          <option value="">Selecione o Treinamento:</option>
+          @foreach($treinamentos as $key => $value)
+            <option value="{{$value->nometreinamento}}">{{$value->nometreinamento}}</option>
+          @endforeach
+          </select>
+        </div>  
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4" style="margin-top:60px">

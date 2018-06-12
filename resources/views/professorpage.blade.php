@@ -16,7 +16,7 @@
      @endif
      @if(Auth::check())
       <?php
-      $pessoa = App\Professor::find($professor->idpessoas)->pessoa;
+      $pessoa = App\Pessoa::find($professor->idpessoas);
       $professores = App\Professor::where('idpessoas',$pessoa->idpessoas)->get();
     	echo "<h2> Nome do Professor:  ".$pessoa->nomepessoa. "<h2>";
     	echo "<h2> Matricula:  ".$pessoa->matpessoas. "<h2>";

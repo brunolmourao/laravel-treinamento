@@ -26,26 +26,32 @@
       <form method="post" action="{{url('professor')}}" enctype="multipart/form-data">
         @csrf
         <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="lgFormGroupInput" >Nome Modulo:</label>
-              <input type="text" class="form-control" name="nomemodulo">
-            </div>
-          </div>
-          <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="Treinamento">Nome Treinamento:</label>
-              <input type="text" class="form-control" name="nometreinamento">
-            </div>
-          </div>
-        <div class="row">
         <div class="col-md-4"></div>
           <label for="Matriculadrop">Matricula do Professor:</label>  
           <select id="category" name="matricula" class="selectpicker">
           <option value="">Selecione o Professor:</option>
           @foreach($professores as $key => $value)
-            <option value="{{$value->matpessoas}}">{{$value->matpessoas}}</option>
+            <option value="{{$value->matricula}}">{{$value->matricula}}</option>
+          @endforeach
+          </select>
+        </div>
+        <div class="row">
+        <div class="col-md-4"></div>
+          <label for="Modulosdrop">Modulo:</label>  
+          <select id="category" name="modulo" class="selectpicker">
+          <option value="">Selecione o Modulo:</option>
+          @foreach($modulos as $key => $value)
+            <option value="{{$value->nomemodulo}}">{{$value->nomemodulo}}</option>
+          @endforeach
+          </select>
+        </div>
+        <div class="row">
+        <div class="col-md-4"></div>
+          <label for="Treinamentodrop">Treinamento:</label>  
+          <select id="category" name="treinamento" class="selectpicker">
+          <option value="">Selecione o Treinamento:</option>
+          @foreach($treinamentos as $key => $value)
+            <option value="{{$value->nometreinamento}}">{{$value->nometreinamento}}</option>
           @endforeach
           </select>
         </div>

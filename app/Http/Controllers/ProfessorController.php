@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pessoa;
+use App\User;
 use App\Modulo;
 use App\Professor;
-use App\treinamento;
+use App\Treinamento;
 
 class ProfessorController extends Controller
 {
     public function create()
     {
-        $profid = Professor::select('idpessoas')->get();
-        $professores = Pessoa::find($profid);
-        return view('createprofessor',compact('professores'));
+        $professores = User::select('matricula')->where('usertype','=',1)->orWhere('usertype','=',2)->get();
+        $modulos = Modulo::all();
+        $treinamentos = Treinamento::all();
+        return view('createprofessor',compact('professores','modulos','treinamentos'));
     }
     public function show()
     {
@@ -25,9 +27,9 @@ class ProfessorController extends Controller
         $professor = new Professor();
         if(!(Pessoa::where('matpessoas',$request->matricula)->get()->isEmpty())){
         	$pessoa = Pessoa::where('matpessoas',$request->matricula)->first();
-            $treinamento = Treinamento::where('nometreinamento',$request->nometreinamento)->first();
-        	if(!(Modulo::where('nomemodulo',$request->nomemodulo)->where('idtreinamento',$treinamento->idtreinamento)->get()->isEmpty() )){
-                $modulo = Modulo::where('nomemodulo',$request->nomemodulo)->where('idtreinamento',$treinamento->idtreinamento)->first();
+            $treinamento = Treinamento::where('nometreinamento',$request->treinamento)->first();
+        	if(!(Modulo::where('nomemodulo',$request->modulo)->where('idtreinamento',$treinamento->idtreinamento)->get()->isEmpty() )){
+                $modulo = Modulo::where('nomemodulo',$request->modulo)->where('idtreinamento',$treinamento->idtreinamento)->first();
                 $professor->idpessoas=$pessoa->idpessoas;
                 $professor->idmodulo=$modulo->idmodulo;
                 $professor->save();
