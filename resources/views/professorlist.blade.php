@@ -29,7 +29,8 @@
       <tr>
         <th>Professor</th>
         <th>Matricula</th>
-        <th colspan="2">Action</th>
+        <th>Email</th>
+        <th colspan="1">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -42,6 +43,7 @@
         ?>
         <td>{{$pessoa['nomepessoa']}}</td>
         <td>{{$pessoa['matpessoas']}}</td>
+        <td>{{$pessoa['email']}}</td>
         
         <td><a href="{!! route('verProfessor', ['id'=>$professorid->idprofessor]) !!}" class="btn btn-warning">Ver Mais</a></td>
       </tr>

@@ -145,6 +145,7 @@ return [
                 [
                     'text'    => 'Adicionar Modulo',
                     'url'     => '/modulo/create',
+                    'icon' => 'arrow-right '
                 ],
                 [
                     'text' => 'Histórico',
@@ -153,10 +154,12 @@ return [
                         [
                             'text' => 'Adicionar Histórico',
                             'url'  => '/historico/create',
+                            'icon' => 'arrow-right '
                         ],
                         [
                             'text' => 'Ver Históricos',
                             'url'  => '/historico',
+                            'icon' => 'arrow-right '
                         ],
                     ],
                 ],
@@ -170,50 +173,53 @@ return [
                 [
                     'text' => 'Adicionar Turma',
                     'url'  => '/turma/create',
+                    'icon' => 'arrow-right '
                 ],
                 [
                     'text'    => 'Adicionar Treinamento',
                     'url'     => '/treinamento/create',
+                    'icon' => 'arrow-right '
                 ],
                 [
                     'text'  =>'Atribuir  Professor',
-                    'url'   =>'/professor/create'
+                    'url'   =>'/professor/create',
+                    'icon' => 'arrow-right '
+                    
                 ],
                 [
                     'text' =>'Ver Requisições de Matrícula',
                     'url'  =>'/turmarequest',
+                    'icon' => 'arrow-right '
                 ],
                 [
                     'text'  =>'Ver Professores',
                     'url'   =>'/professor',
+                    'icon' => 'arrow-right '
                 ],
             ],
         ],
         [
             'text'       => 'Cursos e Componentes',
             'icon' => 'sticky-note ',
-            'submenu' => [
-                [
-                    'text'    => 'Componentes',
-                    'url'     => '#',
                     'submenu' => [
-                        [
-                            'text'    => 'Turmas',
-                            'url'     => '/turma',
-                        ],
                         [
                             'text' => 'Treinamentos',
                             'url'  => '/treinamento',
+                            'icon' => 'arrow-right '
+                        ],
+                        [
+                            'text'    => 'Turmas',
+                            'url'     => '/turma',
+                            'icon' => 'arrow-right '
                         ],
                         [
                             'text'  =>'Professores',
                             'url'   =>'/listprofessores',
+                            'icon' => 'arrow-right '
                         ],
                     ],
                 ],
             ],
-        ],
-    ],
 
     /*
     |--------------------------------------------------------------------------
