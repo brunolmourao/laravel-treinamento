@@ -57,4 +57,8 @@ class ProfessorController extends Controller
 
         return view('professorpage',compact('professor'));
     }
+    public function professorList(){
+        $professores = User::select('matricula')->where('usertype','=',1)->orWhere('usertype','=',2)->get();
+        return view('professorlist',compact('professores'));
+    }
 }

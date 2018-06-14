@@ -18,13 +18,11 @@
     	echo "<h1><center>" .$treinamento->nometreinamento. "</center><h1>";
     	echo "<h2> Carga Horária:  ".$treinamento->cargahoraria. "<h2>";
       echo "<h2> Realizador :  ".$treinamento->realizador. "<h2>";
-      $imagename ="storage/".$treinamento->nometreinamento.".pdf";
+      $filepath ="storage/".$treinamento->nometreinamento.".pdf";
       ?>
-       <a href="{{asset("$imagename")}}" download> Download Objetivo</a>
-      <?php
-      echo "<h1><center> Módulos </center><h1>";
-      ?>
+       <a href="{{asset("$filepath")}}" download> Download Objetivo</a>
     <table class="table table-striped">
+    <caption>Módulos</caption>
     <thead>
       <tr>
         <th>Módulo</th>

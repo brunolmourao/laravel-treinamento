@@ -37,4 +37,7 @@ Route::get('modulo/verModulo/{id}',['as'=> 'verModulo' , 'uses' => 'ModuloContro
 Route::get('professor/verProfessor/{id}',['as'=> 'verProfessor' , 'uses' => 'ProfessorController@verProfessor']);
 Route::delete('/realizarMatricula/{id}','TurmaRequestController@handleRequest');
 Route::get('turmarequest/store/{idturma}/{idaluno}', ['as' => 'turmarequest.store','uses' => 'TurmaRequestController@store']);
-
+Route::get('/listprofessores', function () {
+    $professores = App\User::select('matricula')->where('usertype','=',1)->orWhere('usertype','=',2)->get();
+    return view('professorlist',compact('professores'));
+});

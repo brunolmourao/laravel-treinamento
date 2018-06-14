@@ -143,14 +143,6 @@ return [
             'can'     =>'professor-only',  
             'submenu' => [
                 [
-                    'text' => 'Adicionar Treinamento',
-                    'url'  => '/treinamento/create',
-                ],
-                [
-                    'text'    => 'Adicionar Turma',
-                    'url'     => '/turma/create',
-                ],
-                [
                     'text'    => 'Adicionar Modulo',
                     'url'     => '/modulo/create',
                 ],
@@ -191,6 +183,10 @@ return [
                     'text' =>'Ver Requisições de Matrícula',
                     'url'  =>'/turmarequest',
                 ],
+                [
+                    'text'  =>'Ver Professores',
+                    'url'   =>'/professor',
+                ],
             ],
         ],
         [
@@ -211,7 +207,7 @@ return [
                         ],
                         [
                             'text'  =>'Professores',
-                            'url'   =>'/professor',
+                            'url'   =>'/listprofessores',
                         ],
                     ],
                 ],

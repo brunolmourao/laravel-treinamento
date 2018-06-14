@@ -18,8 +18,11 @@
     	echo "<h2> Sumário:  ".$modulo->sumario. "<h2>";
       echo "<h2>Carga Horária: " .$modulo->cargahoraria. "<h2>";
       echo "<h2> Esse módulo pertençe ao treinamento :".$treinamento->nometreinamento."<h2>";
+      $filepath ="storage/".$modulo->nomemodulo.".".$modulo->idtreinamento.".pdf";
       ?>
-      <table class="table table-striped">
+      <a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}" class = "btn btn-info">Ver mais sobre Treinamento</a>    
+      <a href="{{asset("$filepath")}}" download class = "btn btn-info"> Download Objetivo</a>
+    <table class="table table-striped">
         <caption>Instrutores</caption>
     <thead>
       <tr>
@@ -40,9 +43,6 @@
         <td><a href="{!! route('verProfessor', ['id'=>$prof->idpessoas]) !!}" class="btn btn-warning">Ver Mais</a></td>
       </tr>
       @endforeach
-      <div>
-        <li><a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}">Ver mais sobre Treinamento</a></li>
-      </div>
       <div style ="position: absolute; bottom: 0;">
         <a href="/" class="btn btn-info btn-lg btn-block"> Voltar</a>
 	     </div>

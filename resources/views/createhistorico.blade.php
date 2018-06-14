@@ -30,7 +30,7 @@
           <div class="form-group col-md-4">
             <label for="Matricula">Matricula Aluno:</label>
             <input type="text" class="form-control" name="matricula">
-          </div>
+        </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
