@@ -17,7 +17,11 @@
       $turmas = App\Turma::where('idtreinamento',$treinamento->idtreinamento)->get();
     	echo "<h1><center>" .$treinamento->nometreinamento. "</center><h1>";
     	echo "<h2> Carga Horária:  ".$treinamento->cargahoraria. "<h2>";
-    	echo "<h2> Realizador :  ".$treinamento->realizador. "<h2>";
+      echo "<h2> Realizador :  ".$treinamento->realizador. "<h2>";
+      $imagename ="storage/".$treinamento->nometreinamento.".pdf";
+      ?>
+       <a href="{{asset("$imagename")}}" download> Download Objetivo</a>
+      <?php
       echo "<h1><center> Módulos </center><h1>";
       ?>
     <table class="table table-striped">

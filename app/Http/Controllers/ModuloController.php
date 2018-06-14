@@ -11,7 +11,8 @@ class ModuloController extends Controller
 {
     public function create()
     {
-        return view('createmodulo');
+        $treinamentos  = Treinamento::all();
+        return view('createmodulo',compact('treinamentos'));
     }
     public function show()
     {
@@ -20,8 +21,8 @@ class ModuloController extends Controller
     public function store(Request $request)
     {
         $modulo = new Modulo();
-        if(!(Treinamento::where('nometreinamento',$request->nometreinamento)->get()->isEmpty())){
-        	$treinamento = Treinamento::where('nometreinamento',$request->nometreinamento)->first();
+        if(!(Treinamento::where('nometreinamento',$request->treinamento)->get()->isEmpty())){
+        	$treinamento = Treinamento::where('nometreinamento',$request->treinamento)->first();
             $modulo->nomemodulo = $request->get('nomemodulo');
             $modulo->sumario = $request->get('sumario');
             $modulo->ementa = $request->file('ementa');

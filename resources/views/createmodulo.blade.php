@@ -43,23 +43,26 @@
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
               <label for="Modulo">Ementa :</label>
-              <input type="file" class="form-control" name="ementa">
+              <input type="file"  name="ementa">
             </div>
           </div>
            <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
               <label for="Modulo">Carga Horária :</label>
-              <input type="number" class="form-control" name="cargahoraria">
+              <input type="number"  name="cargahoraria">
             </div>
           </div>
-           <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="Modulo">Nome Treinamento :</label>
-              <input type="text" class="form-control" name="nometreinamento">
-            </div>
-          </div>
+        <div class="row">
+        <div class="col-md-4"></div>
+          <label for="Treinamentodrop">Treinamento:</label>  
+          <select id="category" name="treinamento" class="selectpicker">
+          <option value="">Selecione o Treinamento:</option>
+          @foreach($treinamentos as $key => $value)
+            <option value="{{$value->nometreinamento}}">{{$value->nometreinamento}}</option>
+          @endforeach
+          </select>
+        </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4" style="margin-top:60px">

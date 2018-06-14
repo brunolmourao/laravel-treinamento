@@ -5,7 +5,7 @@
 @section('title', 'Treinamento')
 
 @section('content_header')
-    <h1>Criar Turma</h1>
+    <h1>Criar Treinamento</h1>
 @stop
 
 @section('content')
@@ -28,22 +28,22 @@
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
-            <label for="Turma">Nome da Treinamento :</label>
+            <label for="Treinamento">Nome da Treinamento :</label>
             <input type="text" class="form-control" name="nome">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-              <label for="Turma">Carga Horária :</label>
-              <input type="number" class="form-control" name="cargahoraria">
+              <label for="Carga Horaria">Carga Horária :</label>
+              <input type="number"  name="cargahoraria">
             </div>
           </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-              <label for="Faltas">Objetivo :</label>
-              <input type="file" class="form-control" name="objetivo">
+              <label for="Objetivo">Objetivo :</label>
+              <input type="file"  name="objetivo">
             </div>
           </div>
         <div class="row">

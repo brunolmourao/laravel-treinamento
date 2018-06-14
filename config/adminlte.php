@@ -143,12 +143,12 @@ return [
             'can'     =>'professor-only',  
             'submenu' => [
                 [
-                    'text' => 'Adicionar Turma',
-                    'url'  => '/turma/create',
+                    'text' => 'Adicionar Treinamento',
+                    'url'  => '/treinamento/create',
                 ],
                 [
-                    'text'    => 'Adicionar Treinamento',
-                    'url'     => '/treinamento/create',
+                    'text'    => 'Adicionar Turma',
+                    'url'     => '/turma/create',
                 ],
                 [
                     'text'    => 'Adicionar Modulo',
