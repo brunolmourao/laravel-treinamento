@@ -54,9 +54,9 @@ class ModuloController extends Controller
     public function update(Request $request, $id)
     {
         $modulo= Modulo::find($id);
-        $modulo->nomemodulo = $request->get('nomemodulo');
+       // $modulo->nomemodulo = $request->get('nomemodulo');
         $modulo->sumario = $request->get('sumario');
-        $modulo->ementa = $request->get('ementa');
+       // $modulo->ementa = $request->get('ementa');
         $modulo->cargahoraria = $request->get('cargahoraria');
         $modulo->save();
         return redirect('modulo');
@@ -65,6 +65,8 @@ class ModuloController extends Controller
     {
         $modulo = Modulo::find($id);
         $modulo->delete();
+        $filepath = "storage/".$modulo->nomemodulo.".".$modulo->idtreinamento.".pdf";
+        unlink($filepath);
         return redirect('modulo')->with('success','Information has been  deleted');
     }
 

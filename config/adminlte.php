@@ -143,13 +143,27 @@ return [
             'can'     =>'professor-only',  
             'submenu' => [
                 [
-                    'text'    => 'Adicionar Modulo',
-                    'url'     => '/modulo/create',
-                    'icon' => 'arrow-right '
-                ],
+                    'text'    => 'Módulos',
+                    'url'     => '#',
+                    'icon' => 'arrow-right ',
+                    'submenu' =>[
+                        [
+                            'text' => 'Adicionar Módulo',
+                            'url'  => '/modulo/create',
+                            'icon' => 'arrow-right '
+                        ],
+                        [
+                            'text' => 'Ver Módulos',
+                            'url'  => '/modulo',
+                            'icon' => 'arrow-right '
+                        ],
+                    ],
+                ],    
+
                 [
                     'text' => 'Histórico',
                     'url'  => '#',
+                    'icon' => 'arrow-right ',
                     'submenu' =>[
                         [
                             'text' => 'Adicionar Histórico',

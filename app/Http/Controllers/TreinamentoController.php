@@ -43,9 +43,9 @@ class TreinamentoController extends Controller
     public function update(Request $request, $id)
     {
         $treinamento= Treinamento::find($id);
-        $treinamento->nometreinamento = $request->get('nome');
+       // $treinamento->nometreinamento = $request->get('nome');
         $treinamento->cargahoraria = $request->get('cargahoraria');
-        $treinamento->objetivo = $request->get('objetivo');
+        //$treinamento->objetivo = $request->get('objetivo');
         $treinamento->realizador = $request->get('realizador');	
         $treinamento->save();
         return redirect('treinamento');
@@ -53,6 +53,8 @@ class TreinamentoController extends Controller
     public function destroy($id)
     {
         $treinamento = Treinamento::find($id);
+        $filepath = "storage/".$treinamento->nometreinamento.".pdf";
+        unlink($filepath);
         $treinamento->delete();
         return redirect('treinamento')->with('success','Information has been  deleted');
     }

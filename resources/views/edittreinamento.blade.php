@@ -30,22 +30,22 @@
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
-            <label for="Sumario">Sumario:</label>
-            <input type="text" class="form-control" name="sumario" value="{{$modulo->sumario}}">
+            <label for="Realizador">Realizador:</label>
+            <input type="text" class="form-control" name="realizador" value="{{$treinamento->sumario}}">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
               <label for="cargahoraria">Carga Horária::</label>
-              <input type="text" class="form-control" name="cargahoraria" value="{{$modulo->cargahoraria}}">
+              <input type="text" class="form-control" name="cargahoraria" value="{{$treinamento->cargahoraria}}">
             </div>
           </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4" style="margin-top:60px">
             <button type="submit" class="btn btn-success" style="margin-left:38px">Update</button>
-            <a href="{{action('ModuloController@index')}}" class="btn btn-warning">Voltar</a>
+            <a href="{{action('TreinamentoController@index')}}" class="btn btn-warning">Voltar</a>
           </div>
         </div>
       </form>
