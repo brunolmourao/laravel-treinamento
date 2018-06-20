@@ -37,6 +37,13 @@
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
+              <label for="Modulo">Ementa :</label>
+              <input type="file"  name="ementa">
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
               <label for="cargahoraria">Carga Horária::</label>
               <input type="text" class="form-control" name="cargahoraria" value="{{$modulo->cargahoraria}}">
             </div>

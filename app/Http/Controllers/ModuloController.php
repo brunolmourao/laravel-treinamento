@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\File;
 use App\Modulo;
 use App\Treinamento;
+use App\Professor;
 
 class ModuloController extends Controller
 {
@@ -54,20 +56,35 @@ class ModuloController extends Controller
     public function update(Request $request, $id)
     {
         $modulo= Modulo::find($id);
-       // $modulo->nomemodulo = $request->get('nomemodulo');
+       // $treinamento = Treinamento::where('idtreinamento',$modulo->idtreinamento)->first();
+        if($request->hasfile('ementa') && $request->file('ementa')->isValid()){
+            $filepath = "storage/".$modulo->nomemodulo.".".$modulo->idtreinamento.".pdf";
+            if (File::exists($filepath)) {
+                unlink($filepath);
+            }
+            $extension = $request->ementa->extension();
+            $nameFile = "{$modulo->nomemodulo}.{$modulo->idtreinamento}.{$extension}";
+            $upload = $request->ementa->storeAs('public', $nameFile);
+        }
         $modulo->sumario = $request->get('sumario');
-       // $modulo->ementa = $request->get('ementa');
         $modulo->cargahoraria = $request->get('cargahoraria');
         $modulo->save();
-        return redirect('modulo');
+        return redirect('modulo')->with('success','Modulo Editado com Sucesso');
     }
     public function destroy($id)
     {
         $modulo = Modulo::find($id);
-        $modulo->delete();
+        $professores = Professor::where('idmodulo',$modulo->idmodulo)->get();
+        foreach ($professores as $key) {
+            $key->delete();
+        }
         $filepath = "storage/".$modulo->nomemodulo.".".$modulo->idtreinamento.".pdf";
-        unlink($filepath);
+        if (File::exists($filepath)) {
+            unlink($filepath);
+        }
+        $modulo->delete();   
         return redirect('modulo')->with('success','Information has been  deleted');
+       
     }
 
     public function verModulo($id){

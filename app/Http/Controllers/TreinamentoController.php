@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Treinamento;
+use App\Modulo;
 class TreinamentoController extends Controller
 {
      public function create()
@@ -53,8 +55,14 @@ class TreinamentoController extends Controller
     public function destroy($id)
     {
         $treinamento = Treinamento::find($id);
+        $modulos = Modulo::where('idtreinamento',$treinamento->idtreinamento)->get();
+        foreach ($modulos as $key) {
+            $key->delete();
+        }
         $filepath = "storage/".$treinamento->nometreinamento.".pdf";
-        unlink($filepath);
+        if (File::exists($filepath)) {
+            unlink($filepath);
+        }    
         $treinamento->delete();
         return redirect('treinamento')->with('success','Information has been  deleted');
     }
