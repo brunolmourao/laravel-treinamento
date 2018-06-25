@@ -20,6 +20,7 @@ Route::get('/profileprof', function () {
     return view('profileprofessor');
 });
 Auth::routes();
+Route::post('/profile', 'PessoasController@update_avatar');
 Route::resource('pessoa','PessoasController');
 Route::resource('historico','HistoricoController');
 Route::resource('turma','TurmaController');

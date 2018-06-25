@@ -27,12 +27,13 @@ class ModuloController extends Controller
         	$treinamento = Treinamento::where('nometreinamento',$request->treinamento)->first();
             $modulo->nomemodulo = $request->get('nomemodulo');
             $modulo->sumario = $request->get('sumario');
-            $modulo->ementa = $request->file('ementa');
+            //$modulo->ementa = $request->file('ementa');
             $modulo->idtreinamento = $treinamento->idtreinamento;
             if($request->hasfile('ementa') && $request->file('ementa')->isValid()){
                 $extension = $request->ementa->extension();
                 $nameFile = "{$request->nomemodulo}.{$treinamento->idtreinamento}.{$extension}";
                 $upload = $request->ementa->storeAs('public', $nameFile);
+                $modulo->ementa = $nameFile;
             }
             $modulo->cargahoraria = $request->get('cargahoraria');	
             $modulo->save();

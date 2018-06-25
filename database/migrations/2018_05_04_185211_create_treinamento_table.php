@@ -19,7 +19,7 @@ class CreateTreinamentoTable extends Migration
                 $table->increments('idtreinamento');
                 $table->string('nometreinamento');
                 $table->decimal('cargahoraria');
-                $table->binary('objetivo');
+                $table->string('objetivo');
                 $table->string('realizador');
                 $table->timestamps();
             });

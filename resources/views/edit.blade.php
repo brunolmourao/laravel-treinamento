@@ -6,7 +6,7 @@
 @section('title', 'Treinamento')
 
 @section('content_header')
-    <h1>Editar Pessoa</h1>
+    <h1>Editar Perfil</h1>
 @stop
 
 @section('content')

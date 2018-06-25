@@ -3,11 +3,6 @@
 @extends('adminlte::page')
 
 @section('title', 'Treinamento')
-
-@section('content_header')
-    <h1>Perfil</h1>
-@stop
-
 @section('content')
    @if (\Session::has('success'))
       <div class="alert alert-success">
@@ -15,11 +10,24 @@
       </div><br />
      @endif
      @if(Auth::check())
-      <?php
-       $user = Auth::User();
-      $pessoa = App\Pessoa::where('matpessoas',$user->matricula)->first();
+     <?php
+        $user = Auth::User();
+        $pessoa = App\Pessoa::where('matpessoas',$user->matricula)->first();
+     ?>
+     <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <img src="/storage/{{ $pessoa->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+            <h2>{{ $user->name }}'s Profile</h2>
+            <form enctype="multipart/form-data" action="/profile" method="POST">
+                <label>Mudar Avatar</label>
+                <input type="file" name="avatar">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="submit" class=" btn btn-sm btn-primary">
+            </form>
+        </div>
+    </div>
+      <?php    
       $historicos = App\Historico::where('idpessoas',$pessoa->idpessoas)->get();
-      echo "<h2> Nome do Usuario:  ".$user->name. "<h2>";
       echo "<h2> Matricula:  ".$user->matricula. "<h2>";
       echo "<h2> Email:  ".$user->email. "<h2>";
       echo "<h2> Telefone:  ".$user->phoneNumber. "<h2>";
@@ -31,11 +39,11 @@
         <tr>
           <th>Nome Turma</th>
           <th>Nota</th>
-          <th>Aprovado</th>
+          <th>Estado</th>
           <th>Número de Faltas</th>
           <th>Data Inicial</th>
           <th>Data Final</th>
-          <th>Finalizada</th>
+          <th>Estado da Turma</th>
           <th colspan="1"></th>
         </tr>
       </thead>

@@ -23,10 +23,11 @@ class TreinamentoController extends Controller
             $extension = $request->objetivo->extension();
             $nameFile = "{$request->nome}.{$extension}";
             $upload = $request->objetivo->storeAs('public', $nameFile);
+            $treinamento->objetivo = $nameFile;
         }
         $treinamento->nometreinamento = $request->get('nome');
         $treinamento->cargahoraria = $request->get('cargahoraria');
-        $treinamento->objetivo = $request->file('objetivo');
+        //$treinamento->objetivo = $request->file('objetivo');
         $treinamento->realizador = $request->get('realizador');	
         $treinamento->save();
 

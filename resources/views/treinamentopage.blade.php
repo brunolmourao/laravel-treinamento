@@ -18,7 +18,7 @@
     	echo "<h1><center>" .$treinamento->nometreinamento. "</center><h1>";
     	echo "<h2> Carga Horária:  ".$treinamento->cargahoraria. "<h2>";
       echo "<h2> Realizador :  ".$treinamento->realizador. "<h2>";
-      $filepath ="storage/".$treinamento->nometreinamento.".pdf";
+      $filepath ="storage/".$treinamento->objetivo;
       ?>
        <a href="{{asset("$filepath")}}" download> Download Objetivo</a>
     <table class="table table-striped">

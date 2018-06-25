@@ -20,7 +20,7 @@ class CreateModulo extends Migration
                 $table->unsignedInteger('idtreinamento');
                 $table->string('nomemodulo');
                 $table->string('sumario');
-                $table->binary('ementa');
+                $table->string('ementa');
                 $table->decimal('cargahoraria');
                 $table->timestamps();
             });

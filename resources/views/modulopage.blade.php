@@ -18,7 +18,7 @@
     	echo "<h2> Sumário:  ".$modulo->sumario. "<h2>";
       echo "<h2>Carga Horária: " .$modulo->cargahoraria. "<h2>";
       echo "<h2> Esse módulo pertençe ao treinamento :".$treinamento->nometreinamento."<h2>";
-      $filepath ="storage/".$modulo->nomemodulo.".".$modulo->idtreinamento.".pdf";
+      $filepath ="storage/".$modulo->ementa;
       ?>
       <a href="{!! route('verTreinamento', ['id'=>$treinamento->idtreinamento]) !!}" class = "btn btn-info">Ver mais sobre Treinamento</a>    
       <a href="{{asset("$filepath")}}" download class = "btn btn-info"> Download Objetivo</a>

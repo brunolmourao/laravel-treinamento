@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Pessoa;
 use App\User;
 use DB;
@@ -44,8 +45,7 @@ class PessoasController extends Controller
        
         
         if(!(User::where('matricula',$pessoa->matpessoas)->get()->isEmpty())){
-            $users = User::where('matricula',$pessoa->matpessoas)->get();
-            $user = $users[0];
+            $user = User::where('matricula',$pessoa->matpessoas)->first();
             $user->name=$request->get('name');
             $user->phoneNumber=$request->get('number');
             $user->whatsapp=$request->get('whatsapp');
@@ -54,20 +54,31 @@ class PessoasController extends Controller
         $pessoa->nomepessoa=$request->get('name');
         $pessoa->celular=$request->get('number');
         $pessoa->whatsapp=$request->get('whatsapp');
-       
-
         $pessoa->save();
-        return redirect('pessoa');
+        return redirect('\profile');
     }
     public function destroy($id)
     {
         $pessoa = Pessoa::find($id);
         if(!(User::where('matricula',$pessoa->matpessoas)->get()->isEmpty())){
-             $users = User::where('matricula',$pessoa->matpessoas)->get();
+            $users = User::where('matricula',$pessoa->matpessoas)->get();
             $user = $users[0];
             $user->delete();
         }   
         $pessoa->delete();
         return redirect('pessoa')->with('success','Information has been  deleted');
+    }
+    public function update_avatar(Request $request){
+        if($request->hasFile('avatar')){
+    		$avatar = $request->file('avatar');
+    		$filename = time() . '.' . $avatar->getClientOriginalExtension();
+    		$avatar->storeAs('public',$filename);
+            $user = Auth::user();
+            $pessoa = Pessoa::where('matpessoas',$user->matricula)->first();
+    		$pessoa->avatar = $filename;
+    		$pessoa->save();
+        }
+        return back()
+            ->with('success','You have successfully upload image.');
     }
 }

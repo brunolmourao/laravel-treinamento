@@ -45,7 +45,7 @@
         <td>{{$pessoa['matpessoas']}}</td>
         <td>{{$pessoa['email']}}</td>
         
-        <td><a href="{!! route('verProfessor', ['id'=>$professorid->idprofessor]) !!}" class="btn btn-warning">Ver Mais</a></td>
+        <td><a href="{!! route('verProfessor', ['id'=>$prof->idprofessor]) !!}" class="btn btn-warning">Ver Mais</a></td>
       </tr>
       @endforeach
       @endif

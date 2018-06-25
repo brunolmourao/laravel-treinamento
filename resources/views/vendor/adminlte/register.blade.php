@@ -39,7 +39,7 @@
                     @endif
                 </div>
                 <div class="form-group has-feedback {{ $errors->has('matricula') ? 'has-error' : '' }}">
-                    <input type="matricula" name="matricula" class="form-control" value="{{ old('matricula') }}"
+                    <input type="text" name="matricula" class="form-control" value="{{ old('matricula') }}"
                            placeholder="{{ trans('adminlte::adminlte.matricula') }}">
                     <span class="glyphicon glyphicon-education form-control-feedback"></span>
                     @if ($errors->has('matricula'))
@@ -49,7 +49,7 @@
                     @endif
                 </div>
                 <div class="form-group has-feedback {{ $errors->has('phoneNumber') ? 'has-error' : '' }}">
-                    <input type="phoneNumber" name="phoneNumber" class="form-control" value="{{ old('phoneNumber') }}"
+                    <input type="text" name="phoneNumber" class="form-control" value="{{ old('phoneNumber') }}"
                            placeholder="{{ trans('adminlte::adminlte.phoneNumber') }}">
                     <span class="glyphicon glyphicon-phone form-control-feedback"></span>
                     @if ($errors->has('phoneNumber'))
@@ -59,7 +59,7 @@
                     @endif
                 </div>
                 <div class="form-group has-feedback {{ $errors->has('whatsapp') ? 'has-error' : '' }}">
-                    <input type="whatsapp" name="whatsapp" class="form-control" value="{{ old('whatsapp') }}"
+                    <input type="text" name="whatsapp" class="form-control" value="{{ old('whatsapp') }}"
                            placeholder="{{ trans('adminlte::adminlte.whatsapp') }}">
                     <span class="glyphicon glyphicon-phone form-control-feedback"></span>
                     @if ($errors->has('whatsapp'))
