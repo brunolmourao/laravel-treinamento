@@ -69,6 +69,9 @@ class PessoasController extends Controller
         return redirect('pessoa')->with('success','Information has been  deleted');
     }
     public function update_avatar(Request $request){
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
         if($request->hasFile('avatar')){
     		$avatar = $request->file('avatar');
     		$filename = time() . '.' . $avatar->getClientOriginalExtension();

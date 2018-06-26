@@ -27,30 +27,50 @@
         @csrf
         <div class="row">
           <div class="col-md-4"></div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-4 form-group has-feedback {{ $errors->has('nomemodulo') ? 'has-error' : '' }}">
             <label for="Modulo">Nome Modulo :</label>
             <input type="text" class="form-control" name="nomemodulo">
+            @if ($errors->has('nomemodulo'))
+            <span class="help-block">
+                <strong>{{ $errors->first('nomemodulo') }}</strong>
+            </span>
+            @endif
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
+          <div class="form-group col-md-4 form-group has-feedback {{ $errors->has('sumario') ? 'has-error' : '' }}">
               <label for="Modulo">Sumario :</label>
               <input type="text" class="form-control" name="sumario">
+              @if ($errors->has('sumario'))
+              <span class="help-block">
+                <strong>{{ $errors->first('sumario') }}</strong>
+              </span>
+            @endif
             </div>
           </div>
         <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
+        <div class="col-md-4"></div>
+          <div class="form-group col-md-4 form-group has-feedback {{ $errors->has('ementa') ? 'has-error' : '' }}">
               <label for="Modulo">Ementa :</label>
               <input type="file"  name="ementa">
+              @if ($errors->has('ementa'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('ementa') }}</strong>
+                </span>
+              @endif
             </div>
           </div>
            <div class="row">
           <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
+          <div class="form-group col-md-4 form-group has-feedback {{ $errors->has('cargahoraria') ? 'has-error' : '' }}">
               <label for="Modulo">Carga Horária :</label>
               <input type="number"  name="cargahoraria">
+              @if ($errors->has('cargahoraria'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('cargahoraria') }}</strong>
+                </span>
+              @endif
             </div>
           </div>
         <div class="row">

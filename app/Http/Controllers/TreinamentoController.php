@@ -18,10 +18,16 @@ class TreinamentoController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required|alpha_num',
+            'objetivo' => 'required|mimes:pdf',
+            'realizador' => 'required|string',
+            'cargahoraria' => 'required|numeric',
+        ]);
     	$treinamento = new Treinamento();
         if($request->hasfile('objetivo') && $request->file('objetivo')->isValid()){
-            $extension = $request->objetivo->extension();
-            $nameFile = "{$request->nome}.{$extension}";
+            $objetivo = $request->objetivo;
+            $nameFile = time() . '.' . $objetivo->getClientOriginalExtension();
             $upload = $request->objetivo->storeAs('public', $nameFile);
             $treinamento->objetivo = $nameFile;
         }

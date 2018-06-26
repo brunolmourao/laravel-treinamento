@@ -22,6 +22,12 @@ class ModuloController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'nomemodulo' => 'required|alpha_num',
+            'ementa' => 'required|mimes:pdf',
+            'sumario' => 'required|string',
+            'cargahoraria' => 'required|numeric',
+        ]);
         $modulo = new Modulo();
         if(!(Treinamento::where('nometreinamento',$request->treinamento)->get()->isEmpty())){
         	$treinamento = Treinamento::where('nometreinamento',$request->treinamento)->first();
@@ -30,8 +36,8 @@ class ModuloController extends Controller
             //$modulo->ementa = $request->file('ementa');
             $modulo->idtreinamento = $treinamento->idtreinamento;
             if($request->hasfile('ementa') && $request->file('ementa')->isValid()){
-                $extension = $request->ementa->extension();
-                $nameFile = "{$request->nomemodulo}.{$treinamento->idtreinamento}.{$extension}";
+                $ementa = $request->ementa;
+                $nameFile = time() . '.' . $ementa->getClientOriginalExtension();
                 $upload = $request->ementa->storeAs('public', $nameFile);
                 $modulo->ementa = $nameFile;
             }
@@ -59,13 +65,14 @@ class ModuloController extends Controller
         $modulo= Modulo::find($id);
        // $treinamento = Treinamento::where('idtreinamento',$modulo->idtreinamento)->first();
         if($request->hasfile('ementa') && $request->file('ementa')->isValid()){
-            $filepath = "storage/".$modulo->nomemodulo.".".$modulo->idtreinamento.".pdf";
+            $filepath = "storage/".$modulo->ementa;
             if (File::exists($filepath)) {
                 unlink($filepath);
             }
             $extension = $request->ementa->extension();
             $nameFile = "{$modulo->nomemodulo}.{$modulo->idtreinamento}.{$extension}";
             $upload = $request->ementa->storeAs('public', $nameFile);
+            $modulo->ementa = $nameFile;
         }
         $modulo->sumario = $request->get('sumario');
         $modulo->cargahoraria = $request->get('cargahoraria');

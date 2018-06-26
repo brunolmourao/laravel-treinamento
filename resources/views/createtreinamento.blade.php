@@ -27,30 +27,50 @@
         @csrf
         <div class="row">
           <div class="col-md-4"></div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-4 form-group has-feedback {{ $errors->has('nome') ? 'has-error' : '' }}">
             <label for="Treinamento">Nome da Treinamento :</label>
             <input type="text" class="form-control" name="nome">
+            @if ($errors->has('nome'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('nome') }}</strong>
+                </span>
+              @endif
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
+          <div class="form-group col-md-4 form-group has-feedback {{ $errors->has('cargahoraria') ? 'has-error' : '' }}">
               <label for="Carga Horaria">Carga Horária :</label>
               <input type="number"  name="cargahoraria">
+              @if ($errors->has('cargahoraria'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('cargahoraria') }}</strong>
+                </span>
+              @endif
             </div>
           </div>
         <div class="row">
           <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
+          <div class="form-group col-md-4 form-group has-feedback {{ $errors->has('objetivo') ? 'has-error' : '' }}">
               <label for="Objetivo">Objetivo :</label>
               <input type="file"  name="objetivo">
+              @if ($errors->has('objetivo'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('objetivo') }}</strong>
+                </span>
+              @endif
             </div>
           </div>
         <div class="row">
           <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="Email">Realizador :</label>
+          <div class="form-group col-md-4 form-group has-feedback {{ $errors->has('realizador') ? 'has-error' : '' }}">
+              <label for="Realizador">Realizador :</label>
               <input type="text" class="form-control" name="realizador">
+              @if ($errors->has('realizador'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('realizador') }}</strong>
+                </span>
+              @endif
             </div>
           </div>
         <div class="row">
