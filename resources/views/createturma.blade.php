@@ -27,23 +27,38 @@
         @csrf
         <div class="row">
           <div class="col-md-4"></div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-4 form-group has-feedback {{ $errors->has('nome') ? 'has-error' : '' }}">
             <label for="Turma">Nome da Turma:</label>
             <input type="text" class="form-control" name="nome">
+            @if ($errors->has('nome'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('nome') }}</strong>
+                </span>
+              @endif
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 form-group has-feedback {{ $errors->has('nome') ? 'has-error' : '' }}">
               <label for="DataInicial">Data Inicial:</label>
               <input type="date" class="form-control" name="dataInicio">
+              @if ($errors->has('dataInicio'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('dataInicio') }}</strong>
+                </span>
+              @endif
             </div>
           </div>
         <div class="row">
           <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 form-group has-feedback {{ $errors->has('nome') ? 'has-error' : '' }}">
               <label for="DataFinal">Data Final:</label>
               <input type="date" class="form-control" name="dataFim">
+              @if ($errors->has('dataFim'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('dataFim') }}</strong>
+                </span>
+              @endif
             </div>
           </div>
         <div class="row">

@@ -18,6 +18,11 @@ class TurmaController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required|alpha_num',
+            'dataInicio' => 'required|after:yesterday',
+            'dataFim' => 'required|after:dataInicio',
+        ]);
     	$turma = new Turma();
         if(!(Treinamento::where('nometreinamento',$request->treinamento)->get()->isEmpty())){
         	$treinamento = Treinamento::where('nometreinamento',$request->treinamento)->first();

@@ -207,7 +207,7 @@ return [
                 ],
                 [
                     'text'  =>'Ver Professores',
-                    'url'   =>'/professor',
+                    'url'   =>'/listprofessores',
                     'icon' => 'arrow-right '
                 ],
             ],
