@@ -12,7 +12,7 @@ class TurmaRequestController extends Controller
 {
    public function create()
     {
-        return view('createrequest');
+        
     }
     public function show()
     {

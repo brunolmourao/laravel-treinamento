@@ -185,6 +185,11 @@ return [
             'can'     =>'admin-only',  
             'submenu' => [
                 [
+                    'text' => 'Gerenciar Usuários',
+                    'url'  => '/user',
+                    'icon' => 'arrow-right '
+                ],
+                [
                     'text' => 'Adicionar Turma',
                     'url'  => '/turma/create',
                     'icon' => 'arrow-right '

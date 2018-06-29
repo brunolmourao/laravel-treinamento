@@ -27,6 +27,7 @@ Route::resource('turma','TurmaController');
 Route::resource('treinamento','TreinamentoController');
 Route::resource('modulo','ModuloController');
 Route::resource('professor','ProfessorController');
+Route::resource('user','UserController');
 Route::resource('turmarequest','TurmaRequestController',['expect' => 'store']);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index');
@@ -38,6 +39,9 @@ Route::get('modulo/verModulo/{id}',['as'=> 'verModulo' , 'uses' => 'ModuloContro
 Route::get('professor/verProfessor/{id}',['as'=> 'verProfessor' , 'uses' => 'ProfessorController@verProfessor']);
 Route::delete('/realizarMatricula/{id}','TurmaRequestController@handleRequest');
 Route::get('turmarequest/store/{idturma}/{idaluno}', ['as' => 'turmarequest.store','uses' => 'TurmaRequestController@store']);
+Route::get('user/store/{id}', ['as' => 'user.edit','uses' => 'UserController@update']);
+Route::get('user/admin/{id}', ['as' => 'user.changeToAdmin','uses' => 'UserController@changeUsertypeToAdmin']);
+Route::get('user/aluno/{id}', ['as' => 'user.changeToAluno','uses' => 'UserController@changeUsertypeToAluno']);
 Route::get('/listprofessores', function () {
     $professores = App\User::select('matricula')->where('usertype','=',1)->orWhere('usertype','=',2)->get();
     return view('professorlist',compact('professores'));

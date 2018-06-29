@@ -20,7 +20,14 @@
     	 $user = Auth::User();
       $pessoa = App\Pessoa::where('matpessoas',$user->matricula)->first();
       $professor = App\Professor::where('idpessoas',$pessoa->idpessoas)->get();
-    	echo "<h2> Nome do Usuario:  ".$user->name. "<h2>";
+      ?>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <img src="/storage/{{ $pessoa->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+            <h2>{{ $user->name }}'s Profile</h2>
+        </div>
+    </div>
+      <?php
     	echo "<h2> Matricula:  ".$user->matricula. "<h2>";
     	echo "<h2> Email:  ".$user->email. "<h2>";
     	echo "<h2> Telefone:  ".$user->phoneNumber. "<h2>";
